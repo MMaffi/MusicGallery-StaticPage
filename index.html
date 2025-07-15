@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Gallery</title>
+
+    <!-- Page Icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Css Links -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Music Gallery</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+            <a href="#">Home</a>
+            <a href="#">Videos</a>
+            </nav>
+            <button class="search-icon" id="searchToggle" title="Pesquisar">&#128269;</button>
+            <input type="text" id="searchInput" placeholder="Pesquisar...">
+        </div>
+    </header>
+
+    <main>
+        <section id="featured"></section>
+        <section id="gallery" class="gallery"></section>
+
+        <!-- Lista de vídeos adicionados manualmente -->
+        <section id="videos" style="display: none;">
+            <div class="video" data-title="Meu novo som - Jul/2025" data-src="https://via.placeholder.com/800x400?text=Video+5" data-thumb="https://via.placeholder.com/400x300?text=Video+5"></div>
+            <div class="video" data-title="Video 4" data-src="https://via.placeholder.com/800x400?text=Video+4" data-thumb="https://via.placeholder.com/400x300?text=Video+4"></div>
+            <div class="video" data-title="Video 3" data-src="https://via.placeholder.com/800x400?text=Video+3" data-thumb="https://via.placeholder.com/400x300?text=Video+3"></div>
+            <div class="video" data-title="Video 2" data-src="https://via.placeholder.com/800x400?text=Video+2" data-thumb="https://via.placeholder.com/400x300?text=Video+2"></div>
+            <div class="video" data-title="Video 1" data-src="https://via.placeholder.com/800x400?text=Video+1" data-thumb="https://via.placeholder.com/400x300?text=Video+1"></div>
+        </section>
+
+        <section id="player" style="display: none;">
+            <div class="player-container">
+                <h2 id="player-title"></h2>
+                <video id="videoPlayer" controls autoplay></video>
+                <button onclick="closePlayer()">Fechar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Mateus Music - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- JavaScript links -->
+    <script src="./javascript/script.js"></script>
+</body>
+</html>
