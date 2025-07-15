@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <!-- Css Links -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/modalplayer.css">
 
 </head>
 <body>
@@ -32,22 +33,32 @@
         <section id="featured"></section>
         <section id="gallery" class="gallery"></section>
 
-        <!-- Lista de vídeos adicionados manualmente -->
+        <!-- Lista de vídeos -->
         <section id="videos" style="display: none;">
-            <div class="video" data-title="Meu novo som - Jul/2025" data-src="https://via.placeholder.com/800x400?text=Video+5" data-thumb="https://via.placeholder.com/400x300?text=Video+5"></div>
-            <div class="video" data-title="Video 4" data-src="https://via.placeholder.com/800x400?text=Video+4" data-thumb="https://via.placeholder.com/400x300?text=Video+4"></div>
-            <div class="video" data-title="Video 3" data-src="https://via.placeholder.com/800x400?text=Video+3" data-thumb="https://via.placeholder.com/400x300?text=Video+3"></div>
-            <div class="video" data-title="Video 2" data-src="https://via.placeholder.com/800x400?text=Video+2" data-thumb="https://via.placeholder.com/400x300?text=Video+2"></div>
-            <div class="video" data-title="Video 1" data-src="https://via.placeholder.com/800x400?text=Video+1" data-thumb="https://via.placeholder.com/400x300?text=Video+1"></div>
+
+            <div
+                class="video"
+                data-title="Matheus & Kauan - Decide Aí - Na Praia Ao Vivo"
+                data-src="https://www.youtube.com/embed/pRgCcgbjVDA"
+                data-thumb="https://img.youtube.com/vi/pRgCcgbjVDA/hqdefault.jpg"
+            ></div>
+
+            <div
+                class="video"
+                data-title="Matheus & Kauan - Que Sorte a Nossa"
+                data-src="https://www.youtube.com/embed/BnR8Ezo0n6I"
+                data-thumb="https://img.youtube.com/vi/BnR8Ezo0n6I/hqdefault.jpg"
+            ></div>
+
         </section>
 
-        <section id="player" style="display: none;">
-            <div class="player-container">
+        <div id="player-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closePlayer()">&times;</span>
                 <h2 id="player-title"></h2>
-                <video id="videoPlayer" controls autoplay></video>
-                <button onclick="closePlayer()">Fechar</button>
+                <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>

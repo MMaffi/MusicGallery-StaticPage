@@ -7,33 +7,34 @@ if (videoElements.length > 0) {
   const allVideos = Array.from(videoElements);
   const latest = allVideos[0]; // primeiro da lista (mais recente)
 
-  // Exibe o destaque
+  // Destaque principal
   featuredContainer.innerHTML = `
     <div class="featured">
-      <img src="${latest.dataset.src}" alt="${latest.dataset.title}">
+      <img src="${latest.dataset.thumb}" alt="${latest.dataset.title}">
       <div class="featured-info">
         <h2>LAST VIDEO (FEATURED)</h2>
         <p>${latest.dataset.title}</p>
-        <button onclick="alert('Abrir vídeo: ${latest.dataset.title}')">ASSISTIR</button>
+        <button onclick="playVideo('${latest.dataset.src}', '${latest.dataset.title}')">ASSISTIR</button>
       </div>
     </div>
   `;
 
-  // Exibe todos os vídeos na galeria (inclusive o mais recente)
+  // Galeria de vídeos
   allVideos.forEach(video => {
     const div = document.createElement('div');
     div.classList.add('gallery-item');
-    div.dataset.title = video.dataset.title.toLowerCase(); // para busca
+    div.dataset.title = video.dataset.title.toLowerCase();
     div.innerHTML = `
       <img src="${video.dataset.thumb}" alt="${video.dataset.title}">
       <p>${video.dataset.title}</p>
+      <button onclick="playVideo('${video.dataset.src}', '${video.dataset.title}')">ASSISTIR</button>
     `;
     videoList.push(div);
     galleryContainer.appendChild(div);
   });
 }
 
-// === Lógica da lupa e busca ===
+// Lógica da lupa e busca
 const searchInput = document.getElementById('searchInput');
 const searchToggle = document.getElementById('searchToggle');
 
@@ -61,3 +62,22 @@ searchInput.addEventListener('input', () => {
     }
   });
 });
+
+// Player de vídeo com iframe (para YouTube)
+function playVideo(src, title) {
+  const modal = document.getElementById('player-modal');
+  const video = document.getElementById('videoPlayer');
+  const videoTitle = document.getElementById('player-title');
+
+  videoTitle.textContent = title;
+  video.src = src;
+  modal.style.display = 'block';
+}
+
+function closePlayer() {
+  const modal = document.getElementById('player-modal');
+  const video = document.getElementById('videoPlayer');
+
+  video.src = ''; // Para o vídeo
+  modal.style.display = 'none';
+}
