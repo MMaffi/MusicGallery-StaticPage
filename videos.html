@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeos | Music Gallery</title>
+
+    <!-- Page Icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Css Links -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modalplayer.css">
+    <link rel="stylesheet" href="./css/videospage.css">
+    <link rel="stylesheet" href="./css/scrollbar.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Music Gallery</h1>
+            <span class="separator">|</span>
+            <h2 class="page-title">Todos os Vídeos</h2>
+        </div>
+        <div class="header-right">
+            <nav>
+            <a href="./index.html">Home</a>
+            <a href="./videos.html">Vídeos</a>
+            </nav>
+            <button class="search-icon" id="searchToggle" title="Pesquisar">&#128269;</button>
+            <input type="text" id="searchInput" placeholder="Pesquisar...">
+        </div>
+    </header>
+
+    <main>
+        <section id="gallery" class="gallery"></section>
+
+        <!-- Modal de player -->
+        <div id="player-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closePlayer()">&times;</span>
+                <h2 id="player-title"></h2>
+                <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Mateus Music - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/playerfunctions.js"></script>
+    <script src="./javascript/search.js"></script>
+</body>
+</html>

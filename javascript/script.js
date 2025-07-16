@@ -1,83 +1,102 @@
-const videoElements = document.querySelectorAll('#videos .video');
-const featuredContainer = document.getElementById('featured');
+const isHomePage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html');
+const isVideosPage = window.location.pathname.endsWith('/videos.html');
+
 const galleryContainer = document.getElementById('gallery');
 const videoList = [];
+let allVideos = [];
+let currentIndex = 0;
 
-if (videoElements.length > 0) {
-  const allVideos = Array.from(videoElements);
-  const latest = allVideos[0]; // primeiro da lista (mais recente)
+const batchSize = isHomePage ? 18 : isVideosPage ? 24 : 18;
 
-  // Destaque principal
-  featuredContainer.innerHTML = `
-    <div class="featured">
-      <img src="${latest.dataset.thumb}" alt="${latest.dataset.title}">
-      <div class="featured-info">
-        <h2>LAST VIDEO (FEATURED)</h2>
-        <p>${latest.dataset.title}</p>
-        <button onclick="playVideo('${latest.dataset.src}', '${latest.dataset.title}')">ASSISTIR</button>
-      </div>
-    </div>
-  `;
+fetch('/json/data.json')
+	.then(res => res.json())
+	.then(videos => {
+		allVideos = videos;
+		if (allVideos.length === 0) return;
 
-  // Galeria de vídeos
-  allVideos.forEach(video => {
-    const div = document.createElement('div');
-    div.classList.add('gallery-item');
-    div.dataset.title = video.dataset.title.toLowerCase();
-    div.innerHTML = `
-      <img src="${video.dataset.thumb}" alt="${video.dataset.title}">
-      <p>${video.dataset.title}</p>
-      <button onclick="playVideo('${video.dataset.src}', '${video.dataset.title}')">ASSISTIR</button>
-    `;
-    videoList.push(div);
-    galleryContainer.appendChild(div);
-  });
+		if (isHomePage) {
+		const featuredContainer = document.getElementById('featured');
+		const latest = allVideos[0];
+
+		featuredContainer.innerHTML = `
+			<div class="featured" style="background-image: url('${latest.thumb}');">
+			<div class="featured-info">
+				<h2>Vídeo em Destaque</h2>
+				<p>${latest.title}</p>
+				<button onclick="playVideo('${latest.src}', '${latest.title}')">ASSISTIR</button>
+			</div>
+			</div>
+		`;
+
+		featuredContainer.querySelector('.featured').addEventListener('click', () => {
+			playVideo(latest.src, latest.title);
+		});
+
+		currentIndex = 1;
+
+		loadMoreVideos(true); 
+
+		} else if (isVideosPage) {
+		loadMoreVideos();
+		window.addEventListener('scroll', () => {
+			const scrollTop = window.scrollY;
+			const windowHeight = window.innerHeight;
+			const docHeight = document.documentElement.scrollHeight;
+
+			if (scrollTop + windowHeight >= docHeight - 100) {
+			loadMoreVideos();
+			}
+		});
+		} else {
+			allVideos.forEach(video => {
+				addVideoToGallery(video);
+			});
+		}
+});
+
+function loadMoreVideos(limited = false) {
+	let nextVideos;
+
+	if (limited) {
+		nextVideos = allVideos.slice(currentIndex, batchSize + 1);
+	} else {
+		nextVideos = allVideos.slice(currentIndex, currentIndex + batchSize);
+	}
+
+	nextVideos.forEach(video => {
+		addVideoToGallery(video);
+	});
+
+	currentIndex += nextVideos.length;
+
+	if (limited && currentIndex >= batchSize) {
+		addSeeMoreCard();
+	}
 }
 
-// Lógica da lupa e busca
-const searchInput = document.getElementById('searchInput');
-const searchToggle = document.getElementById('searchToggle');
-
-searchToggle.addEventListener('click', () => {
-  searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
-  if (searchInput.style.display === 'block') {
-    searchInput.focus();
-  }
-});
-
-document.addEventListener('click', (e) => {
-  if (!searchInput.contains(e.target) && !searchToggle.contains(e.target)) {
-    if (searchInput.value.trim() === '') {
-      searchInput.style.display = 'none';
-    }
-  }
-});
-
-searchInput.addEventListener('input', () => {
-  const query = searchInput.value.toLowerCase();
-  galleryContainer.innerHTML = '';
-  videoList.forEach(item => {
-    if (item.dataset.title.includes(query)) {
-      galleryContainer.appendChild(item);
-    }
-  });
-});
-
-// Player de vídeo com iframe (para YouTube)
-function playVideo(src, title) {
-  const modal = document.getElementById('player-modal');
-  const video = document.getElementById('videoPlayer');
-  const videoTitle = document.getElementById('player-title');
-
-  videoTitle.textContent = title;
-  video.src = src;
-  modal.style.display = 'block';
+function addVideoToGallery(video) {
+	const div = document.createElement('div');
+	div.classList.add('gallery-item');
+	div.dataset.title = video.title.toLowerCase();
+	div.innerHTML = `
+		<img src="${video.thumb}" alt="${video.title}">
+		<p>${video.title}</p>
+	`;
+	div.addEventListener('click', () => {
+		playVideo(video.src, video.title);
+	});
+	videoList.push(div);
+	galleryContainer.appendChild(div);
 }
 
-function closePlayer() {
-  const modal = document.getElementById('player-modal');
-  const video = document.getElementById('videoPlayer');
+function addSeeMoreCard() {
+	const div = document.createElement('div');
+	div.classList.add('gallery-item', 'see-more-card');
+	div.textContent = 'Veja mais vídeos aqui';
 
-  video.src = ''; // Para o vídeo
-  modal.style.display = 'none';
+	div.addEventListener('click', () => {
+		window.location.href = 'videos.html';
+	});
+
+	galleryContainer.appendChild(div);
 }

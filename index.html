@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/modalplayer.css">
+    <link rel="stylesheet" href="./css/scrollbar.css">
 
 </head>
 <body>
@@ -21,8 +22,8 @@
         </div>
         <div class="header-right">
             <nav>
-            <a href="#">Home</a>
-            <a href="#">Videos</a>
+                <a href="#">Início</a>
+                <a href="./videos.html">Videos</a>
             </nav>
             <button class="search-icon" id="searchToggle" title="Pesquisar">&#128269;</button>
             <input type="text" id="searchInput" placeholder="Pesquisar...">
@@ -31,27 +32,10 @@
 
     <main>
         <section id="featured"></section>
+        <h3 class="gallery-subtitle">Vídeos Rescentes</h3>
         <section id="gallery" class="gallery"></section>
 
-        <!-- Lista de vídeos -->
-        <section id="videos" style="display: none;">
-
-            <div
-                class="video"
-                data-title="Matheus & Kauan - Decide Aí - Na Praia Ao Vivo"
-                data-src="https://www.youtube.com/embed/pRgCcgbjVDA"
-                data-thumb="https://img.youtube.com/vi/pRgCcgbjVDA/hqdefault.jpg"
-            ></div>
-
-            <div
-                class="video"
-                data-title="Matheus & Kauan - Que Sorte a Nossa"
-                data-src="https://www.youtube.com/embed/BnR8Ezo0n6I"
-                data-thumb="https://img.youtube.com/vi/BnR8Ezo0n6I/hqdefault.jpg"
-            ></div>
-
-        </section>
-
+        <!-- Modal de player -->
         <div id="player-modal" class="modal">
             <div class="modal-content">
                 <span class="close-button" onclick="closePlayer()">&times;</span>
@@ -65,7 +49,8 @@
         <p>&copy; Mateus Music - Todos os direitos reservados</p>
     </footer>
 
-    <!-- JavaScript links -->
     <script src="./javascript/script.js"></script>
+    <script src="./javascript/playerfunctions.js"></script>
+    <script src="./javascript/search.js"></script>
 </body>
 </html>

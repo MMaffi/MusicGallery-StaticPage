@@ -1,120 +1,184 @@
 html, body {
-  height: 100%;
+  	height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #1a1a1a;
-  flex-wrap: wrap;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #1a1a1a;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
 }
 
 .header-left h1 {
-  font-size: 1.5rem;
+  	font-size: 1.5rem;
+	color: #e63946;
 }
 
 .header-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  position: relative;
+	display: flex;
+	align-items: center;
+	gap: 25px;
+	position: relative;
 }
 
 /* Ícone de lupa */
 .search-icon {
-  cursor: pointer;
-  font-size: 20px;
-  color: white;
-  background: none;
-  border: none;
+	cursor: pointer;
+	font-size: 20px;
+	color: white;
+	background: none;
+	border: none;
 }
 
 nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
+	color: white;
+	margin: 0 25px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: #e63946;
+	text-decoration: underline;
 }
 
 #searchInput {
-  padding: 6px 10px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 35px;
-  background: #fff;
-  color: #000;
-  width: 150px;
-  z-index: 10;
+	padding: 6px 10px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	font-size: 14px;
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 35px;
+	background: #fff;
+	color: #000;
+	width: 150px;
+  	z-index: 10;
 }
 
 .featured, .gallery {
-  padding: 30px 20px;
+  	padding: 30px 20px;
 }
 
-.featured img {
-  width: 100%;
-  border-radius: 10px;
-  max-height: 400px;
-  object-fit: cover;
+.featured {
+	position: relative;
+	width: 95%;
+	max-width: 1000px;
+	aspect-ratio: 16 / 9;
+	margin: 0 auto;
+	padding: 0 20px;
+	background-size: cover;
+	background-position: center;
+	border-radius: 10px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
 }
 
 .featured-info {
-  margin-top: 15px;
+	position: relative;
+	color: white;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	border-radius: 10px;
+	margin-left: 1%;
+	max-width: 40%;
+	cursor: pointer;
 }
 
 .featured-info h2 {
-  font-size: 1.4rem;
+	font-size: 1.6rem;
+	margin-bottom: 10px;
 }
 
 .featured-info p {
-  margin: 10px 0;
+	font-size: 1.2rem;
+	margin-bottom: 15px;
 }
 
 .featured-info button {
-  padding: 10px 20px;
-  background: #e63946;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
+	padding: 10px 20px;
+	background: #e63946;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 20px;
+}
+
+.gallery-subtitle {
+    max-width: 1000px;
+    margin: 70px auto -15px 20px;
+    font-size: 1.4rem;
+    color: #eee;
+    font-weight: 600;
+	text-align: left;
+}
+
+.gallery-item {
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.gallery-item:hover {
+  	transform: scale(1.02);
 }
 
 .gallery-item img {
-  width: 100%;
-  border-radius: 10px;
+	width: 100%;
+	border-radius: 10px;
 }
 
 .gallery-item p {
-  margin-top: 5px;
-  text-align: center;
+	margin-top: 5px;
+	text-align: center;
+}
+
+/* Estilo do card “Veja mais vídeos” */
+.see-more-card {
+	cursor: pointer;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.3rem;
+	font-weight: 700;
+	color: #e63946;
+	border: 2px dashed #e63946;
+	border-radius: 10px;
+	padding: 40px 20px;
+	grid-column: 1 / -1;
+	text-align: center;
+	transition: background-color 0.3s ease;
+}
+
+.see-more-card:hover {
+  	background-color: rgba(230, 57, 70, 0.1);
 }
 
 footer {
-  padding: 20px;
-  background-color: #1a1a1a;
-  text-align: center;
+	padding: 20px;
+	background-color: #1a1a1a;
+	text-align: center;
 }

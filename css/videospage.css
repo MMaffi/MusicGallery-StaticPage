@@ -1,0 +1,44 @@
+main {
+    margin-top: 0;
+}
+
+header {
+    margin-bottom: 0px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left h1 {
+    font-size: 1.5rem;
+    color: #e63946;
+    margin: 0;
+}
+
+.page-title {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.separator {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.gallery {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.gallery-item img {
+    border-radius: 10px;
+    height: 195px;
+    object-fit: cover;
+}
+
+.gallery-item p {
+    font-size: 1rem;
+    margin-top: 8px;
+}
