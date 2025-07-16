@@ -8,7 +8,7 @@ let currentIndex = 0;
 
 const batchSize = isHomePage ? 18 : isVideosPage ? 24 : 18;
 
-fetch('/json/data.json')
+fetch('../json/data.json')
 	.then(res => res.json())
 	.then(videos => {
 		allVideos = videos;
