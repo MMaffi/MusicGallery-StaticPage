@@ -29,10 +29,6 @@ fetch('/MusicGallery/json/data.json')
 			</div>
 		`;
 
-		featuredContainer.querySelector('.featured').addEventListener('click', () => {
-			playVideo(latest.src, latest.title);
-		});
-
 		currentIndex = 1;
 
 		loadMoreVideos(true); 

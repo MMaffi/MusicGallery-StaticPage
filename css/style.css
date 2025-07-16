@@ -89,7 +89,6 @@ nav a:hover {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	cursor: pointer;
 }
 
 .featured-info {
@@ -100,7 +99,6 @@ nav a:hover {
 	border-radius: 10px;
 	margin-left: 1%;
 	max-width: 40%;
-	cursor: pointer;
 }
 
 .featured-info h2 {
