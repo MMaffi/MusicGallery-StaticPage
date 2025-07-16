@@ -34,7 +34,7 @@ header {
 }
 .gallery-item img {
     border-radius: 10px;
-    height: 195px;
+    height: 170px;
     object-fit: cover;
 }
 
