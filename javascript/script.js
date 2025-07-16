@@ -12,6 +12,7 @@ fetch('/MusicGallery/json/data.json')
 	.then(res => res.json())
 	.then(videos => {
 		allVideos = videos;
+		window.allVideos = videos;
 		if (allVideos.length === 0) return;
 
 		if (isHomePage) {
