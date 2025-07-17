@@ -79,13 +79,13 @@ const waitForVideos = setInterval(() => {
 			const gallery = document.getElementById('gallery');
 
 			if (query !== '') {
-				if (featured) featured.style.display = 'none';
-				if (subtitle) subtitle.style.display = 'none';
-				if (gallery) gallery.style.marginTop = '-30px';
+				if (featured && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) featured.style.display = 'none';
+				if (subtitle && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) subtitle.style.display = 'none';
+				if (gallery && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) 	gallery.style.marginTop = '-30px';
 			} else {
-				if (featured) featured.style.display = 'flex';
-				if (subtitle) subtitle.style.display = 'block';
-				if (gallery) gallery.style.marginTop = '0';
+				if (featured && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) featured.style.display = 'flex';
+				if (subtitle && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) subtitle.style.display = 'block';
+				if (gallery && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) gallery.style.marginTop = '0';
 			}
 
 			galleryContainer.innerHTML = '';
