@@ -30,6 +30,7 @@ header {
     color: #e63946;
     letter-spacing: 0.5px;
     margin: 0;
+	margin-left: 8px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -37,6 +38,7 @@ header {
     font-size: 0.8rem;
     color: #ccc;
     margin-top: 0px;
+	margin-left: 8px;
     font-style: italic;
 }
 
@@ -47,17 +49,8 @@ header {
 	position: relative;
 }
 
-/* Ícone de lupa */
-.search-icon {
-	cursor: pointer;
-	font-size: 20px;
-	color: white;
-	background: none;
-	border: none;
-}
-
 nav a {
-	color: white;
+	color: #ccc;
 	margin: 0 25px;
 	text-decoration: none;
 }
@@ -67,28 +60,51 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.search-wrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.search-icon {
+	background: none;
+	border: none;
+	font-size: 18px;
+	color: white;
+	cursor: pointer;
+	padding: 6px;
+	z-index: 1;
+}
+
 #searchInput {
-    position: absolute;
-    width: 0;
-    opacity: 0;
-    pointer-events: none;
-    padding: 6px 10px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    background: white;
-    color: black;
-    transition: all 0.3s ease;
+	position: absolute;
+	right: 0;
+	opacity: 0;
+	width: 0;
+	pointer-events: none;
+	padding: 6px 10px;
+	font-size: 14px;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	background: white;
+	color: black;
+	transition: all 0.3s ease;
 }
 
 #searchInput.active {
-    position: static;
-    display: inline-block;
-    width: 170px;
-    opacity: 1;
-    pointer-events: auto;
-    margin-left: 10px;
+	position: static;
+	width: 150px;
+	opacity: 1;
+	pointer-events: auto;
+	margin-left: 8px;
+}
+
+#searchInput.hiding {
+	width: 0;
+	opacity: 0;
+	margin-left: 0;
+	pointer-events: none;
 }
 
 .featured, .gallery {
@@ -181,7 +197,6 @@ nav a:hover {
 	text-align: center;
 }
 
-/* Estilo do card “Veja mais vídeos” */
 .see-more-card {
 	cursor: pointer;
 	display: flex !important;

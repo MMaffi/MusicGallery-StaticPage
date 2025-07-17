@@ -63,16 +63,18 @@
         <div class="header-right">
             <nav>
                 <a href="#">Início</a>
-                <a href="./videos.html">Videos</a>
+                <a href="./videos.html">Vídeos</a>
             </nav>
-            <button class="search-icon" id="searchToggle" title="Pesquisar">&#128269;</button>
-            <input type="text" id="searchInput" placeholder="Buscar...">
+            <div class="search-wrapper">
+                <button id="searchToggle" class="search-icon">🔍</button>
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
         </div>
     </header>
 
     <main>
         <section id="featured"></section>
-        <h3 class="gallery-subtitle">Vídeos Rescentes</h3>
+        <h3 class="gallery-subtitle" id="gallerySubtitle">Vídeos Rescentes</h3>
         <section id="gallery" class="gallery"></section>
 
         <!-- Modal de player -->

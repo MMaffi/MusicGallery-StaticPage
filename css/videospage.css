@@ -18,6 +18,7 @@ header {
     color: #e63946;
     letter-spacing: 0.5px;
     margin: 0;
+    margin-left: 8px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
