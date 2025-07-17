@@ -8,7 +8,7 @@ let currentIndex = 0;
 
 const batchSize = isHomePage ? 18 : isVideosPage ? 24 : 18;
 
-fetch('/MusicGallery/json/data.json')
+fetch('./json/data.json')
 	.then(res => res.json())
 	.then(videos => {
 		allVideos = videos;
@@ -97,4 +97,12 @@ function addSeeMoreCard() {
 	});
 
 	galleryContainer.appendChild(div);
+}
+
+// PWA
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/javascript/service-worker.js')
+    .then(() => console.log('✅ Service Worker registrado!'))
+    .catch(err => console.error('❌ Erro ao registrar SW:', err));
 }
