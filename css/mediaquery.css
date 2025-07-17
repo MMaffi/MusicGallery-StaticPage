@@ -59,6 +59,10 @@
         gap: 15px;
     }
 
+    .gallery-item img {
+        min-height: 220px;
+    }
+
     .modal-content {
         width: 95%;
         padding: 15px;
