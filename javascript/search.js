@@ -2,18 +2,24 @@ const searchInput = document.getElementById('searchInput');
 const searchToggle = document.getElementById('searchToggle');
 
 searchToggle.addEventListener('click', () => {
-	searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
-	if (searchInput.style.display === 'block') {
-		searchInput.focus();
-	}
+  const isActive = searchInput.classList.toggle('active');
+  if (isActive) searchInput.focus();
+  else searchInput.value = '';
 });
 
 document.addEventListener('click', (e) => {
-	if (!searchInput.contains(e.target) && !searchToggle.contains(e.target)) {
-		if (searchInput.value.trim() === '') {
-			searchInput.style.display = 'none';
-		}
-	}
+  if (!searchInput.contains(e.target) && !searchToggle.contains(e.target)) {
+    if (searchInput.value.trim() === '') {
+      searchInput.classList.remove('active');
+    }
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    searchInput.classList.remove('active');
+    searchInput.value = '';
+  }
 });
 
 let fuse;

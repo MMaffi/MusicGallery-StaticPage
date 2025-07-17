@@ -13,9 +13,12 @@ header {
 }
 
 .header-left h1 {
-    font-size: 1.5rem;
+  	font-size: 1.4rem;
+    font-family: 'Monoton', cursive;
     color: #e63946;
+    letter-spacing: 0.5px;
     margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .page-title {

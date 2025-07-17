@@ -18,15 +18,26 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding: 12px 20px;
 	background-color: #1a1a1a;
 	flex-wrap: wrap;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .header-left h1 {
-  	font-size: 1.5rem;
-	color: #e63946;
+  	font-size: 1.4rem;
+    font-family: 'Monoton', cursive;
+    color: #e63946;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-top: 0px;
+    font-style: italic;
 }
 
 .header-right {
@@ -52,24 +63,32 @@ nav a {
 }
 
 nav a:hover {
-	color: #e63946;
-	text-decoration: underline;
+    color: #6c5ce7;
+    text-decoration: underline;
 }
 
 #searchInput {
-	padding: 6px 10px;
-	border-radius: 5px;
-	border: none;
-	outline: none;
-	font-size: 14px;
-	display: none;
-	position: absolute;
-	right: 0;
-	top: 35px;
-	background: #fff;
-	color: #000;
-	width: 150px;
-  	z-index: 10;
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: white;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+#searchInput.active {
+    position: static;
+    display: inline-block;
+    width: 170px;
+    opacity: 1;
+    pointer-events: auto;
+    margin-left: 10px;
 }
 
 .featured, .gallery {
@@ -113,11 +132,17 @@ nav a:hover {
 
 .featured-info button {
 	padding: 10px 20px;
-	background: #e63946;
+	background: linear-gradient(135deg, #e63946, #6c5ce7);
 	border: none;
 	color: white;
 	border-radius: 5px;
 	cursor: pointer;
+	transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.featured-info button:hover {
+    background: linear-gradient(135deg, #ff4c5b, #7c6ee7);
+    transform: scale(1.05);
 }
 
 .gallery {
