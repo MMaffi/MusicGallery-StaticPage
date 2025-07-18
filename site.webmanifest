@@ -3,7 +3,7 @@
   "short_name": "Music Gallery",
   "description": "Assista covers de músicas incríveis com visuais únicos.",
   "start_url": "./index.html",
-  "orientation": "portrait",
+  "orientation": "any",
   "icons": [
     {
       "src": "./assets/favicon/web-app-manifest-192x192.png",
