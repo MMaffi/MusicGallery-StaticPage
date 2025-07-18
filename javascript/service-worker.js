@@ -33,7 +33,7 @@ self.addEventListener("install", (event) => {
     event.waitUntil(
       caches.open("music-gallery-cache").then(async (cache) => {
         const filesToCache = [
-          "./",
+          "../",
           "../index.html",
           "../videos.html",
           "../css/style.css",
