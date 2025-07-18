@@ -12,7 +12,7 @@
 
 /* Conteúdo do modal */
 .modal-content {
-    background-color: #fff;
+    background-color: #111;
     margin: 5% auto;
     padding: 20px;
     border-radius: 8px;
@@ -27,7 +27,7 @@
     margin-bottom: 15px;
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #ccc;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
 }
@@ -40,7 +40,8 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    color: black;
+    color: #ccc;
+    transition: .3s;
 }
 
 .close-button:hover {

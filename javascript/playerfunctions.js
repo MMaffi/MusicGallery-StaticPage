@@ -7,6 +7,7 @@ function playVideo(src, title) {
 	videoTitle.textContent = title;
 	video.src = src;
   	modal.style.display = 'block';
+	document.body.classList.add("modal-open");
 }
 
 function closePlayer() {
@@ -15,4 +16,5 @@ function closePlayer() {
 
 	video.src = '';
 	modal.style.display = 'none';
+	document.body.classList.remove("modal-open");
 }
