@@ -17,6 +17,7 @@ self.addEventListener("install", (event) => {
         "./playerfunctions.js",
         "./search.js",
         "./service-worker.js",
+        "./sw-register.js",
         "../json/data.json",
         "../site.webmanifest",
         "../assets/favicon/web-app-manifest-192x192.png",
