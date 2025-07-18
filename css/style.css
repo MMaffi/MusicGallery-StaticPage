@@ -232,6 +232,7 @@ footer p {
 .social-media {
     display: flex;
     justify-content: center;
+	align-items: baseline;
     gap: 18px;
     flex-wrap: wrap;
 }
