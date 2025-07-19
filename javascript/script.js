@@ -8,11 +8,46 @@ let currentIndex = 0;
 
 const batchSize = isHomePage ? 18 : isVideosPage ? 24 : 18;
 
-fetch('./json/data.json')
-	.then(res => res.json())
+const apiKey = 'AIzaSyBs6PS2RkjkXlcrTDz9760GPEgta73CTX8';
+const playlistId = 'UU0HmTxJ5o42rXrR85VYfXvg';
+
+function fetchVideos(pageToken = '', accumulated = []) {
+	const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
+
+	return fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			if (!data.items || data.items.length === 0) {
+				console.warn('Nenhum vídeo encontrado no canal.');
+				document.getElementById('gallery').innerHTML = `
+				<p style="text-align:center; color:#fff; font-size:1.2rem;">
+					Nenhum vídeo publicado no canal ainda. Volte em breve! 🎵
+				</p>`;
+				return [];
+			}
+
+			const newVideos = data.items.map(item => ({
+				title: item.snippet.title,
+				thumb: item.snippet.thumbnails.medium.url,
+				src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`
+			}));
+
+			const combined = [...accumulated, ...newVideos];
+
+			if (data.nextPageToken) {
+				return fetchVideos(data.nextPageToken, combined);
+			} else {
+				return combined;
+			}
+		});
+}
+
+// Início do carregamento
+fetchVideos()
 	.then(videos => {
 		allVideos = videos;
 		window.allVideos = videos;
+
 		if (allVideos.length === 0) return;
 
 		if (isHomePage) {
@@ -30,9 +65,7 @@ fetch('./json/data.json')
 		`;
 
 		currentIndex = 1;
-
-		loadMoreVideos(true); 
-
+		loadMoreVideos(true);
 		} else if (isVideosPage) {
 		loadMoreVideos();
 		window.addEventListener('scroll', () => {
@@ -45,26 +78,20 @@ fetch('./json/data.json')
 			}
 		});
 		} else {
-			allVideos.forEach(video => {
-				addVideoToGallery(video);
-			});
+		allVideos.forEach(video => addVideoToGallery(video));
 		}
 	})
-	.catch(err => console.error('Erro ao carregar JSON:', err));
+	.catch(err => console.error('Erro ao carregar vídeos:', err));
 
 function loadMoreVideos(limited = false) {
 	let nextVideos;
-
 	if (limited) {
 		nextVideos = allVideos.slice(currentIndex, batchSize + 1);
 	} else {
 		nextVideos = allVideos.slice(currentIndex, currentIndex + batchSize);
 	}
 
-	nextVideos.forEach(video => {
-		addVideoToGallery(video);
-	});
-
+	nextVideos.forEach(video => addVideoToGallery(video));
 	currentIndex += nextVideos.length;
 
 	if (limited && currentIndex >= batchSize) {
@@ -91,10 +118,8 @@ function addSeeMoreCard() {
 	const div = document.createElement('div');
 	div.classList.add('gallery-item', 'see-more-card');
 	div.textContent = 'Veja mais vídeos aqui';
-
 	div.addEventListener('click', () => {
 		window.location.href = 'videos.html';
 	});
-
 	galleryContainer.appendChild(div);
 }
