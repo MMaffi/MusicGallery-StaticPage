@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugestões - MusicGallery</title>
+    <link rel="stylesheet" href="./css/suggestions.css">
+
+    <!-- Page Icon -->
+    <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+</head>
+<body>
+
+	<a href="./index.html"><button class="back">Voltar</button></a>
+
+    <div class="container">
+		<h1>Sugira uma Música</h1>
+		<form action="https://formsubmit.co/mm.maffi@outlook.com" method="POST">
+			<input type="hidden" name="_captcha" value="false">
+			<input type="hidden" name="_subject" value="Nova sugestão de música!">
+			<input type="hidden" name="_template" value="box">
+			<input type="hidden" name="_next" value="https://mmaffi.github.io/MusicGallery/thankyou.html">
+
+			<label for="name">Seu Nome:</label>
+			<input type="text" id="name" name="Nome" required>
+
+			<label for="email">Seu E-mail:</label>
+			<input type="email" id="email" name="Email" required>
+
+			<label for="song">Nome da Música:</label>
+			<input type="text" id="song" name="Música" required>
+
+			<label for="artist">Artista/Banda:</label>
+			<input type="text" id="artist" name="Artista" required>
+
+			<label for="message">Mensagem (opcional):</label>
+			<textarea id="message" name="Mensagem" rows="4"></textarea>
+
+			<button type="submit">Enviar Sugestão</button>
+		</form>
+    </div>
+</body>
+</html>

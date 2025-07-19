@@ -218,7 +218,55 @@ nav a:hover {
 }
 
 footer {
-	padding: 20px;
-	background-color: #1a1a1a;
-	text-align: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+footer p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+	align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.social-media a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.social-media img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1); /* Deixa os ícones brancos */
+    transition: filter 0.3s;
+}
+
+.instagram:hover img {
+    filter: hue-rotate(300deg) brightness(1.2);
+}
+.youtube:hover img {
+    filter: hue-rotate(-30deg) brightness(1.2);
+}
+.github:hover img {
+    filter: hue-rotate(180deg) brightness(1.2);
+}
+.portfolio:hover img {
+    filter: hue-rotate(210deg) brightness(1.2);
+}
+.email:hover img {
+    filter: hue-rotate(90deg) brightness(1.2);
 }
