@@ -53,7 +53,9 @@ fetchVideos()
 
 		if (isHomePage) {
 		const featuredContainer = document.getElementById('featured');
-		const latest = allVideos[0];
+
+		const randomIndex = Math.floor(Math.random() * allVideos.length);
+		const latest = allVideos[randomIndex];
 
 		featuredContainer.innerHTML = `
 			<div class="featured" style="background-image: url('${latest.thumb}');">
@@ -65,7 +67,7 @@ fetchVideos()
 			</div>
 		`;
 
-		currentIndex = 1;
+		currentIndex = 0;
 		loadMoreVideos(true);
 		} else if (isVideosPage) {
 		loadMoreVideos();
@@ -79,7 +81,7 @@ fetchVideos()
 			}
 		});
 		} else {
-		allVideos.forEach(video => addVideoToGallery(video));
+			allVideos.forEach(video => addVideoToGallery(video));
 		}
 	})
 	.catch(err => console.error('Erro ao carregar vídeos:', err));
