@@ -126,3 +126,13 @@ function addSeeMoreCard() {
 	});
 	galleryContainer.appendChild(div);
 }
+
+const links = document.querySelectorAll('.menu a');
+const currentPage = location.pathname.split('/').pop();
+
+links.forEach(link => {
+	const href = link.getAttribute('href');
+	if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+		link.classList.add('active');
+	}
+});
