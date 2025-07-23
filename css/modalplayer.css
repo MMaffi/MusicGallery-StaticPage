@@ -32,6 +32,16 @@
     padding-bottom: 10px;
 }
 
+.modal-date {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    text-align: right;
+    font-weight: 500;
+    user-select: none;
+}
+
 /* Botão de fechar */
 .close-button {
     position: absolute;

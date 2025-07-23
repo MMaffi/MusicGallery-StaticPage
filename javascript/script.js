@@ -30,7 +30,8 @@ function fetchVideos(pageToken = '', accumulated = []) {
 			const newVideos = data.items.map(item => ({
 				title: item.snippet.title,
 				thumb: item.snippet.thumbnails.medium.url,
-				src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`
+				src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
+				publishedAt: item.snippet.publishedAt
 			}));
 
 			const combined = [...accumulated, ...newVideos];
@@ -59,13 +60,17 @@ fetchVideos()
 
 		featuredContainer.innerHTML = `
 			<div class="featured" style="background-image: url('${latest.thumb}');">
-			<div class="featured-info">
-				<h2>Vídeo em Destaque</h2>
-				<p>${latest.title}</p>
-				<button onclick="playVideo('${latest.src}', '${latest.title}')">ASSISTIR</button>
-			</div>
+				<div class="featured-info">
+					<h2>Vídeo em Destaque</h2>
+					<p>${latest.title}</p>
+					<button id="btn-play-featured">ASSISTIR</button>
+				</div>
 			</div>
 		`;
+
+		document.getElementById('btn-play-featured').addEventListener('click', () => {
+			playVideo(latest.src, latest.title, formatDate(latest.publishedAt));
+		});
 
 		currentIndex = 0;
 		loadMoreVideos(true);
@@ -106,12 +111,15 @@ function addVideoToGallery(video) {
 	const div = document.createElement('div');
 	div.classList.add('gallery-item');
 	div.dataset.title = video.title.toLowerCase();
+
 	div.innerHTML = `
 		<img src="${video.thumb}" alt="${video.title}">
-		<p>${video.title}</p>
+		<p class="video-title">${video.title}</p>
+		<p class="video-date">${formatDate(video.publishedAt)}</p>
 	`;
+	
 	div.addEventListener('click', () => {
-		playVideo(video.src, video.title);
+		playVideo(video.src, video.title, formatDate(video.publishedAt));
 	});
 	videoList.push(div);
 	galleryContainer.appendChild(div);
@@ -125,6 +133,12 @@ function addSeeMoreCard() {
 		window.location.href = 'videos.html';
 	});
 	galleryContainer.appendChild(div);
+}
+
+function formatDate(dateString) {
+	const date = new Date(dateString);
+	const options = { day: '2-digit', month: 'long', year: 'numeric' };
+	return date.toLocaleDateString('pt-BR', options);
 }
 
 const links = document.querySelectorAll('.menu a');

@@ -184,6 +184,8 @@ nav a:hover {
 .gallery-item {
 	cursor: pointer;
 	transition: transform 0.2s;
+	position: relative;
+	overflow: hidden;
 }
 
 .gallery-item:hover {
@@ -220,6 +222,32 @@ nav a:hover {
 
 .see-more-card:hover {
   	background-color: rgba(230, 57, 70, 0.1);
+}
+
+.gallery-item .video-date {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	background: rgba(0, 0, 0, 0.7);
+	color: #eee;
+	font-size: 0.7rem;
+	padding: 3px 6px;
+	border-radius: 4px;
+	opacity: 0;
+	transform: translateY(-5px);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	pointer-events: none;
+}
+
+.gallery-item:hover .video-date {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.video-title {
+	font-weight: bold;
+	color: #fff;
+	margin-top: 8px;
 }
 
 footer {
