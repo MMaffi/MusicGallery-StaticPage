@@ -54,6 +54,51 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
+// Script para sugestões
+const suggestions = document.getElementById('suggestions');
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+
+    if (!query) {
+        suggestions.innerHTML = '';
+        suggestions.style.display = 'none';
+        return;
+    }
+
+    const matches = allVideos.filter(video =>
+        video.title.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+        suggestions.innerHTML = '<div>Nenhuma sugestão encontrada</div>';
+        suggestions.style.display = 'block';
+        return;
+    }
+
+    suggestions.innerHTML = matches.slice(0, 5).map(video =>
+        `<div data-src="${video.src}" data-title="${video.title}">${video.title}</div>`
+    ).join('');
+    suggestions.style.display = 'block';
+});
+
+suggestions.addEventListener('click', (e) => {
+    if (e.target && e.target.matches('div[data-src]')) {
+        const src = e.target.getAttribute('data-src');
+        const title = e.target.getAttribute('data-title');
+
+        searchInput.value = title;
+        suggestions.style.display = 'none';
+        playVideo(src, title);
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+        suggestions.style.display = 'none';
+    }
+});
+
 // Código da busca
 
 let fuse;
