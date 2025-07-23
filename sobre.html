@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Meta Tags -->
     <!-- META TAGS ESSENCIAIS PARA SEO -->
-    <meta name="title" content="Music Gallery">
-    <meta name="description" content="Assista aos melhores covers de músicas nacionais e internacionais. Do pop ao rock, do MPB ao indie, explore vídeos com talento e emoção.">
-    <meta name="keywords" content="covers musicais, vídeos de covers, música, clipes musicais, cover, sertanejo, universitário, raíz, MPB, pop, rock, acústico, violão, voz, MMaffi, Music Gallery">
+    <meta name="title" content="Sobre - Music Gallery">
+    <meta name="description" content="Conheça Mateus Maffi, criador do Music Gallery. Descubra sua paixão pela música, trajetória e inspiração por trás dos covers.">
+    <meta name="keywords" content="sobre, biografia, Mateus Maffi, música, covers, trajetória musical, cantor, violonista, Music Gallery">
     <meta name="author" content="MMaffi">
-    <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
 
     <!-- OPEN GRAPH (FACEBOOK, LINKEDIN ETC.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mmaffi.github.io/MusicGallery">
-    <meta property="og:title" content="Music Gallery">
+    <meta property="og:title" content="Sobre - Music Gallery">
     <meta property="og:description" content="Explore vídeos cover incríveis de músicas de diversos gêneros. Uma experiência musical única com muito talento e sentimento.">
     <meta property="og:image" content="https://mmaffi.github.io/MusicGallery/assets/images/banner.png">
-    <meta property="og:site_name" content="Music Gallery">
+    <meta property="og:site_name" content="Sobre - Music Gallery">
     <meta property="og:locale" content="pt_BR">
 
     <!-- TWITTER CARDS -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://mmaffi.github.io/MusicGallery">
-    <meta name="twitter:title" content="Music Gallery">
-    <meta name="twitter:description" content="Assista aos melhores covers de músicas com Mateus. Vídeos com voz, violão e muito talento.">
+    <meta name="twitter:title" content="Sobre - Music Gallery">
+    <meta name="twitter:description" content="Conheça Mateus Maffi, artista por trás do Music Gallery e seus covers únicos.">
     <meta name="twitter:image" content="https://mmaffi.github.io/MusicGallery/assets/images/banner.png">
 
     <!-- PWA / DISPOSITIVOS MÓVEIS -->
     <meta name="theme-color" content="#101820">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Music Gallery">
+    <meta name="apple-mobile-web-app-title" content="Sobre - Music Gallery">
 
-
-    <title>Music Gallery</title>
+    <title>Sobre | Music Gallery</title>
 
     <!-- Page Icon -->
     <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
@@ -44,54 +42,55 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
 
-    <!-- Css Links -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/modalplayer.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/mediaquery.css" />
+    <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/scrollbar.css">
     <link rel="stylesheet" href="./css/mediaquery.css">
-
+    
     <!-- Link Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <header>
         <div class="header-left">
             <h1>Music Gallery</h1>
-            <p class="tagline">Assista covers de músicas incríveis com visuais únicos.</p>
+            <span class="separator">|</span>
+            <h2 class="page-title">Sobre</h2>
         </div>
         <div class="header-right">
             <nav class="menu">
-                <a href="index.html">Início</a>
+                <a href="./index.html">Início</a>
                 <a href="./videos.html">Vídeos</a>
-                <a href="./sobre.html">Sobre</a>
+                <a href="sobre.html">Sobre</a>
                 <a href="./sugestoes.html">Sugestões</a>
             </nav>
-            <div class="search-wrapper">
-                <button id="searchToggle" class="search-icon">🔍</button>
-                <input type="text" id="searchInput" placeholder="Buscar...">
-            </div>
         </div>
     </header>
 
-    <main>
-        <section id="featured"></section>
-        <h3 class="gallery-subtitle" id="gallerySubtitle">Vídeos Rescentes</h3>
-        <section id="gallery" class="gallery"></section>
-
-        <!-- Modal de player -->
-        <div id="player-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button" onclick="closePlayer()">&times;</span>
-                <h2 id="player-title"></h2>
-                <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+    <main class="sobre">
+        <section class="sobre-container">
+            <h2>Sobre o Music Gallery</h2>
+            <p>
+                Olá! Eu sou <strong>Mateus Maffi</strong>, músico apaixonado e criador do <strong>Music Gallery</strong>. Esse espaço nasceu com o objetivo de compartilhar minha jornada musical por meio de <strong>covers de músicas nacionais e internacionais</strong>, interpretadas com muito sentimento e dedicação.
+            </p>
+            <p>
+                Desde muito cedo, a música faz parte da minha vida. Ao longo dos anos, aprendi a tocar e desenvolver minha voz, buscando sempre transmitir a essência de cada canção. Cada vídeo aqui representa um pouco da minha identidade artística e do que acredito na música: <em>emoção, autenticidade e conexão</em>.
+            </p>
+            <p>
+                No <strong>Music Gallery</strong> você encontrará covers de diversos gêneros — do <em>sertanejo ao MPB, do pop ao rock</em> — todos gravados com carinho, criatividade e atenção aos detalhes.
+            </p>
+            <p>
+                Sinta-se à vontade para explorar os vídeos, deixar sugestões, me acompanhar nas redes sociais e, claro, compartilhar com amigos! Este projeto é feito com amor e está em constante evolução.
+            </p>
+            <p>Obrigado por fazer parte disso. 🎵</p>
+        </section>
     </main>
 
     <footer>
-        
+
         <div class="social-media">
             <a href="https://www.instagram.com/mateus_maffi" target="_blank" class="instagram" title="Instagram">
                 <img src="./assets/icons/instagram.svg" alt="Instagram">
@@ -119,8 +118,6 @@
     <script src="./javascript/sw-register.js"></script>
     <script src="./javascript/fuse.min.js"></script>
     <script src="./javascript/script.js"></script>
-    <script src="./javascript/search.js"></script>
-    <script src="./javascript/playerfunctions.js"></script>
     <script src="./javascript/load-version.js"></script>
 </body>
 </html>

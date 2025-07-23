@@ -1,0 +1,45 @@
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left h1 {
+  	font-size: 1.4rem;
+    font-family: 'Monoton', cursive;
+    color: #e63946;
+    letter-spacing: 0.5px;
+    margin: 0;
+    margin-left: 8px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.separator {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.sobre-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.sobre-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.sobre-container p {
+    margin-bottom: 15px;
+    text-align: justify;
+}

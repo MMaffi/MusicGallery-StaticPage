@@ -229,8 +229,8 @@ footer {
     padding: 20px 10px;
 }
 
-footer p {
-    margin-bottom: 12px;
+footer p.copyright {
+    margin-bottom: -15px;
     font-size: 0.95rem;
 }
 
@@ -239,8 +239,7 @@ footer .version {
     color: #aaa;
     text-align: center;
     padding-right: 10px;
-	margin-bottom: -15px;
-	margin-top: 15px;
+	margin-top: 20px;
 }
 
 .social-media {
