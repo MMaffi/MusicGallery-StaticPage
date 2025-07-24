@@ -6,7 +6,7 @@ const videoList = [];
 let allVideos = [];
 let currentIndex = 0;
 
-const batchSize = isHomePage ? 18 : isVideosPage ? 24 : 18;
+const batchSize = isHomePage ? 19 : isVideosPage ? 60 : 19;
 
 // Colocar Restrições na API
 const apiKey = 'AIzaSyBs6PS2RkjkXlcrTDz9760GPEgta73CTX8';
@@ -43,6 +43,22 @@ function fetchVideos(pageToken = '', accumulated = []) {
 			}
 		});
 }
+
+// Função para teste
+// function fetchVideos() {
+// 	const fakeVideos = [];
+
+// 	for (let i = 1; i <= 200; i++) {
+// 		fakeVideos.push({
+// 			title: `Vídeo de Teste ${i}`,
+// 			thumb: `https://via.placeholder.com/320x180.png?text=Thumb+${i}`,
+// 			src: `https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&fake=${i}`,
+// 			publishedAt: new Date(2024, 0, i % 30 + 1).toISOString()
+// 		});
+// 	}
+
+// 	return Promise.resolve(fakeVideos);
+// }
 
 // Início do carregamento
 fetchVideos()
