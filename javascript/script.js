@@ -186,6 +186,17 @@ function formatDate(dateString) {
 	return date.toLocaleDateString('pt-BR', options);
 }
 
+function formatViews(views) {
+    views = Number(views);
+    if (views >= 1_000_000) {
+        return (views / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+    } 
+    if (views >= 1_000) {
+        return (views / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    return views.toString();
+}
+
 const links = document.querySelectorAll('.menu a');
 const currentPage = location.pathname.split('/').pop();
 
