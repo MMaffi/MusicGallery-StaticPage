@@ -41,6 +41,7 @@
 
 #player-meta #player-views {
     margin-top: -10px;
+    user-select: none;
 }
 
 .modal-date {
