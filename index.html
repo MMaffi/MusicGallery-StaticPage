@@ -71,6 +71,7 @@
             <div class="search-wrapper">
                 <button id="searchToggle" class="search-icon">🔍</button>
                 <input type="text" id="searchInput" placeholder="Buscar..." autocomplete="off" spellcheck="false">
+                <div id="suggestions"></div>
             </div>
         </div>
     </header>
@@ -85,7 +86,12 @@
             <div class="modal-content">
                 <span class="close-button" onclick="closePlayer()">&times;</span>
                 <h2 id="player-title"></h2>
-                <p id="player-date" class="modal-date"></p>
+
+                <div id="player-meta">
+                    <span id="player-views"></span>
+                    <span id="player-date" class="modal-date"></span>
+                </div>
+
                 <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>

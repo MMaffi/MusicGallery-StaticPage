@@ -6,7 +6,7 @@ const videoList = [];
 let allVideos = [];
 let currentIndex = 0;
 
-const batchSize = isHomePage ? 18 : isVideosPage ? 24 : 18;
+const batchSize = isHomePage ? 19 : isVideosPage ? 60 : 19;
 
 // Colocar Restrições na API
 const apiKey = 'AIzaSyBs6PS2RkjkXlcrTDz9760GPEgta73CTX8';
@@ -31,6 +31,7 @@ function fetchVideos(pageToken = '', accumulated = []) {
 				title: item.snippet.title,
 				thumb: item.snippet.thumbnails.medium.url,
 				src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
+				videoId: item.snippet.resourceId.videoId,
 				publishedAt: item.snippet.publishedAt
 			}));
 
@@ -44,8 +45,52 @@ function fetchVideos(pageToken = '', accumulated = []) {
 		});
 }
 
+function fetchVideoDetails(videoIds) {
+	const ids = videoIds.join(',');
+	const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${ids}&key=${apiKey}`;
+
+	return fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			const statsMap = {};
+			if (data.items) {
+				data.items.forEach(item => {
+					statsMap[item.id] = item.statistics.viewCount || 0;
+				});
+			}
+			return statsMap;
+		});
+}
+
+// Função para teste
+// function fetchVideos() {
+// 	const fakeVideos = [];
+
+// 	for (let i = 1; i <= 200; i++) {
+// 		fakeVideos.push({
+// 			title: `Vídeo de Teste ${i}`,
+// 			thumb: `https://via.placeholder.com/320x180.png?text=Thumb+${i}`,
+// 			src: `https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&fake=${i}`,
+// 			publishedAt: new Date(2024, 0, i % 30 + 1).toISOString()
+// 		});
+// 	}
+
+// 	return Promise.resolve(fakeVideos);
+// }
+
 // Início do carregamento
 fetchVideos()
+	.then(videos => {
+		const videoIds = videos.map(v => v.videoId);
+		return fetchVideoDetails(videoIds)
+			.then(statsMap => {
+				// Junta as views em cada vídeo
+				videos.forEach(v => {
+					v.views = statsMap[v.videoId] || '0';
+				});
+				return videos;
+			});
+	})
 	.then(videos => {
 		allVideos = videos;
 		window.allVideos = videos;
@@ -69,7 +114,7 @@ fetchVideos()
 		`;
 
 		document.getElementById('btn-play-featured').addEventListener('click', () => {
-			playVideo(latest.src, latest.title, formatDate(latest.publishedAt));
+			playVideo(latest.src, latest.title, formatDate(latest.publishedAt), latest.views);
 		});
 
 		currentIndex = 0;
@@ -119,7 +164,7 @@ function addVideoToGallery(video) {
 	`;
 	
 	div.addEventListener('click', () => {
-		playVideo(video.src, video.title, formatDate(video.publishedAt));
+		playVideo(video.src, video.title, formatDate(video.publishedAt), video.views);
 	});
 	videoList.push(div);
 	galleryContainer.appendChild(div);
@@ -139,6 +184,17 @@ function formatDate(dateString) {
 	const date = new Date(dateString);
 	const options = { day: '2-digit', month: 'long', year: 'numeric' };
 	return date.toLocaleDateString('pt-BR', options);
+}
+
+function formatViews(views) {
+    views = Number(views);
+    if (views >= 1_000_000) {
+        return (views / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+    } 
+    if (views >= 1_000) {
+        return (views / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    return views.toString();
 }
 
 const links = document.querySelectorAll('.menu a');

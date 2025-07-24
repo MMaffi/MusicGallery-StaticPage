@@ -99,7 +99,7 @@ nav a:hover {
 
 #searchInput.active {
 	position: static;
-	width: 150px;
+	width: 300px;
 	opacity: 1;
 	pointer-events: auto;
 	margin-left: 8px;
@@ -110,6 +110,58 @@ nav a:hover {
 	opacity: 0;
 	margin-left: 0;
 	pointer-events: none;
+}
+
+#suggestions {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: 300px;
+	max-height: 250px;
+	overflow-y: auto;
+	background-color: #111;
+	border: 1px solid #333;
+	border-top: none;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+	color: #ccc;
+	z-index: 9999;
+	display: none;
+}
+
+.suggestion {
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.suggestion:hover,
+.suggestion.active {
+	background-color: #222;
+	color: #fff;
+}
+
+.no-match {
+	padding: 10px;
+	color: #888;
+	font-style: italic;
+}
+
+.clear-history {
+	color: #aaa;
+	padding: 8px;
+	text-align: center;
+	cursor: pointer;
+	border-top: 1px solid #444;
+	transition: background 0.2s, color 0.2s;
+}
+
+.clear-history:hover {
+	background: #222;
+	color: red;
 }
 
 .featured, .gallery {
