@@ -31,6 +31,7 @@ function fetchVideos(pageToken = '', accumulated = []) {
 				title: item.snippet.title,
 				thumb: item.snippet.thumbnails.medium.url,
 				src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
+				videoId: item.snippet.resourceId.videoId,
 				publishedAt: item.snippet.publishedAt
 			}));
 
@@ -41,6 +42,23 @@ function fetchVideos(pageToken = '', accumulated = []) {
 			} else {
 				return combined;
 			}
+		});
+}
+
+function fetchVideoDetails(videoIds) {
+	const ids = videoIds.join(',');
+	const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${ids}&key=${apiKey}`;
+
+	return fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			const statsMap = {};
+			if (data.items) {
+				data.items.forEach(item => {
+					statsMap[item.id] = item.statistics.viewCount || 0;
+				});
+			}
+			return statsMap;
 		});
 }
 
@@ -62,6 +80,17 @@ function fetchVideos(pageToken = '', accumulated = []) {
 
 // Início do carregamento
 fetchVideos()
+	.then(videos => {
+		const videoIds = videos.map(v => v.videoId);
+		return fetchVideoDetails(videoIds)
+			.then(statsMap => {
+				// Junta as views em cada vídeo
+				videos.forEach(v => {
+					v.views = statsMap[v.videoId] || '0';
+				});
+				return videos;
+			});
+	})
 	.then(videos => {
 		allVideos = videos;
 		window.allVideos = videos;
@@ -85,7 +114,7 @@ fetchVideos()
 		`;
 
 		document.getElementById('btn-play-featured').addEventListener('click', () => {
-			playVideo(latest.src, latest.title, formatDate(latest.publishedAt));
+			playVideo(latest.src, latest.title, formatDate(latest.publishedAt), latest.views);
 		});
 
 		currentIndex = 0;
@@ -135,7 +164,7 @@ function addVideoToGallery(video) {
 	`;
 	
 	div.addEventListener('click', () => {
-		playVideo(video.src, video.title, formatDate(video.publishedAt));
+		playVideo(video.src, video.title, formatDate(video.publishedAt), video.views);
 	});
 	videoList.push(div);
 	galleryContainer.appendChild(div);
