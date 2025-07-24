@@ -34,6 +34,14 @@
         top: 40px;
     }
 
+    #searchInput.active {
+        width: 170px;
+    }
+
+    #suggestions {
+       width: 170px; 
+    }
+
     .featured-info {
         max-width: 100%;
         margin: 0;

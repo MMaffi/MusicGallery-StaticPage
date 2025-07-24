@@ -99,7 +99,7 @@ nav a:hover {
 
 #searchInput.active {
 	position: static;
-	width: 200px;
+	width: 300px;
 	opacity: 1;
 	pointer-events: auto;
 	margin-left: 8px;
@@ -116,7 +116,7 @@ nav a:hover {
 	position: absolute;
 	top: 100%;
 	right: 0;
-	width: 200px;
+	width: 300px;
 	max-height: 250px;
 	overflow-y: auto;
 	background-color: #111;
