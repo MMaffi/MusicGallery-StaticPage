@@ -94,7 +94,6 @@ nav a:hover {
 	outline: none;
 	background: white;
 	color: black;
-	transition: all 0.3s ease;
 }
 
 #searchInput.active {
