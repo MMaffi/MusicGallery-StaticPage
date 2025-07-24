@@ -1,0 +1,22 @@
+#configBtn {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #222;
+	color: #ccc;
+	border: none;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s ease;
+}
+
+#configBtn:hover {
+	background-color: #444;
+}
