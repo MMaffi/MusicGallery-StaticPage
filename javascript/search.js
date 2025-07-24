@@ -25,8 +25,12 @@ function resetSearchLayout() {
 	const isVideos = window.location.pathname.endsWith('/videos.html');
 
 	if (isHome) {
-		window.allVideos.slice(1, currentIndex).forEach(video => addVideoToGallery(video));
-		addSeeMoreCard();
+		const visibleVideos = window.allVideos.slice(0, currentIndex);
+		visibleVideos.forEach(video => addVideoToGallery(video));
+
+		if (window.allVideos.length > currentIndex) {
+			addSeeMoreCard();
+		}
 	} else if (isVideos) {
 		window.allVideos.slice(0, currentIndex).forEach(video => addVideoToGallery(video));
 	} else {
@@ -41,9 +45,12 @@ searchToggle.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (e) => {
-	if (!searchInput.contains(e.target) && !searchToggle.contains(e.target) && !suggestions.contains(e.target)) {
+	const isClickOutside = !searchInput.contains(e.target) && !searchToggle.contains(e.target) && !suggestions.contains(e.target);
+
+	if (isClickOutside) {
 		suggestions.style.display = 'none';
-		if (searchInput.value.trim() === '') {
+
+		if (searchInput.classList.contains('active') && searchInput.value.trim() === '') {
 			searchInput.classList.remove('active');
 			resetSearchLayout();
 		}
