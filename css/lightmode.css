@@ -27,8 +27,13 @@ body.light-theme .tagline {
 }
 
 /* Menu */
-body.light-theme .menu a {
-	color: #222;
+body.light-theme nav.menu a {
+	color: #444;
+	text-decoration: none;
+}
+
+body.light-theme nav.menu a:hover {
+	color: #007acc;
 }
 
 body.light-theme .menu a.active {
