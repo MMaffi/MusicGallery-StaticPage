@@ -79,6 +79,10 @@ body.light-theme .gallery-item p {
 	color: #111;
 }
 
+body.light-theme .gallery-item .video-date {
+	color: #fff;
+}
+
 /* Modal do vídeo */
 body.light-theme .modal-content {
 	background-color: #fff;
