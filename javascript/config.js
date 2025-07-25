@@ -16,3 +16,19 @@ function clearHistory() {
 
 	alert('Histórico de busca limpo!');
 }
+
+// Light Mode
+const themeSwitch = document.getElementById('themeSwitch');
+
+themeSwitch.addEventListener('change', () => {
+	document.body.classList.toggle('light-theme', themeSwitch.checked);
+	localStorage.setItem('theme', themeSwitch.checked ? 'light' : 'dark');
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme === 'light') {
+		document.body.classList.add('light-theme');
+		themeSwitch.checked = true;
+	}
+});
