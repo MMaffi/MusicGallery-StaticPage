@@ -144,6 +144,10 @@ body.light-theme .close-settings {
 	color: #000;
 }
 
+body.light-theme .about {
+	color: #444;
+}
+
 /* Custom Select (ícone removido por padrão) */
 body.light-theme .custom-select::after {
 	border-color: #111;
