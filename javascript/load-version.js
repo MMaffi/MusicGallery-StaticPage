@@ -8,7 +8,7 @@ fetch('./json/version.json')
     .then(data => {
         const versionElement = document.getElementById('siteVersion');
         if (versionElement) {
-        versionElement.textContent = data.version;
+            versionElement.textContent = data.version;
         }
     })
     .catch(error => {

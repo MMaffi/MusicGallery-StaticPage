@@ -135,12 +135,6 @@ function showRecentHistory() {
 		`<div class="suggestion" data-title="${h}">${h} <span style="opacity: 0.6;">(histórico)</span></div>`
 	).join('');
 
-	suggestions.innerHTML += `
-		<div class="clear-history" style="text-align: center; color: #aaa; padding: 8px; cursor: pointer; border-top: 1px solid #444;">
-			Limpar histórico
-		</div>
-	`;
-
 	suggestions.style.display = 'block';
 }
 
@@ -151,20 +145,6 @@ suggestions.addEventListener('click', (e) => {
 		searchInput.value = title;
 		suggestions.style.display = 'none';
 		executeSearch(title);
-	}
-});
-
-// Clique para limpar histórico
-suggestions.addEventListener('click', (e) => {
-	if (e.target && e.target.matches('div[data-title]')) {
-		const title = e.target.getAttribute('data-title');
-		searchInput.value = title;
-		suggestions.style.display = 'none';
-		executeSearch(title);
-	} else if (e.target && e.target.classList.contains('clear-history')) {
-		localStorage.removeItem('searchHistory');
-		searchHistory = [];
-		suggestions.style.display = 'none';
 	}
 });
 

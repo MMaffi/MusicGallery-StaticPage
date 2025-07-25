@@ -309,16 +309,9 @@ footer {
 }
 
 footer p.copyright {
+	margin-top: 10px;
     margin-bottom: -15px;
     font-size: 0.95rem;
-}
-
-footer .version {
-    font-size: 0.75rem;
-    color: #aaa;
-    text-align: center;
-    padding-right: 10px;
-	margin-top: 20px;
 }
 
 .social-media {
