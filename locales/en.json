@@ -9,8 +9,8 @@
         },
         "searchPlaceholder": "Search...",
         "noSuggestions": "No suggestions found",
+        "historyLabel": "(history)",
         "settings": "Settings",
-        "settingsTitle": "Settings",
         "language": "Language",
         "theme": "Theme",
         "notification": "Notification",
@@ -48,6 +48,34 @@
             "Feel free to explore the videos, leave suggestions, follow me on social media, and of course, share with friends! This project is made with love and is constantly evolving.",
             "Thank you for being part of it. 🎵"
         ]
+    },
+
+    "suggestions": {
+        "pageTitle": "Suggestions",
+        "meta": {
+            "title": "Suggestions - Music Gallery"
+        },
+        "backButton": "Back",
+        "form": {
+            "heading": "Suggest a Song",
+            "labels": {
+                "name": "Your Name:",
+                "email": "Your Email:",
+                "song": "Song Name:",
+                "artist": "Artist/Band:",
+                "message": "Message (optional):"
+            },
+            "submitButton": "Send Suggestion"
+        }
+    },
+
+    "thankyou": {
+        "meta": {
+            "title": "Thank you!"
+        },
+        "heading": "Thank you for your suggestion! 🎵",
+        "message": "We have received your song and will review it with care.",
+        "buttonText": "Back to home"
     },
 
     "settingsTitle": "Settings",

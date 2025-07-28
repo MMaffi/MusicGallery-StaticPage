@@ -37,7 +37,7 @@ function setLanguage(lang) {
             // Define título da aba
             const currentPage = window.location.pathname.includes('videos') ? 'videos' :
                                 window.location.pathname.includes('sobre') ? 'about' :
-                                window.location.pathname.includes('sugestoes') ? 'suggestions' : 'index';
+                                window.location.pathname.includes('sugestoes') ? 'suggestions' :
                                 window.location.pathname.includes('thankyou') ? 'thankyou' : 'index';
 
             const pageTitle = resolveNestedKey(translations, `${currentPage}.meta.title`);

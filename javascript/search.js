@@ -127,16 +127,18 @@ function updateSuggestions(query) {
 }
 
 function showRecentHistory() {
-	if (searchHistory.length === 0) {
-		suggestions.style.display = 'none';
-		return;
-	}
+    if (searchHistory.length === 0) {
+        suggestions.style.display = 'none';
+        return;
+    }
 
-	suggestions.innerHTML = searchHistory.slice(0, 5).map(h =>
-		`<div class="suggestion" data-title="${h}">${h} <span style="opacity: 0.6;">(histórico)</span></div>`
-	).join('');
+    const historyLabel = translations.global.historyLabel || "(histórico)";
 
-	suggestions.style.display = 'block';
+    suggestions.innerHTML = searchHistory.slice(0, 5).map(h =>
+        `<div class="suggestion" data-title="${h}">${h} <span style="opacity: 0.6;">${historyLabel}</span></div>`
+    ).join('');
+
+    suggestions.style.display = 'block';
 }
 
 // Clique em sugestão
