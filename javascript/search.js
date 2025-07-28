@@ -113,7 +113,8 @@ function updateSuggestions(query) {
 	const matches = allVideos.filter(v => v.title.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
 
 	if (matches.length === 0) {
-		suggestions.innerHTML = `<div class="no-match">Nenhuma sugestão encontrada</div>`;
+		const noSuggestionsText = translations?.global.noSuggestions || "Nenhuma sugestão encontrada";
+		suggestions.innerHTML = `<div class="no-match">${noSuggestionsText}</div>`;
 		suggestions.style.display = 'block';
 		return;
 	}

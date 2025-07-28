@@ -106,12 +106,14 @@ fetchVideos()
 		featuredContainer.innerHTML = `
 			<div class="featured" style="background-image: url('${latest.thumb}');">
 				<div class="featured-info">
-					<h2>Vídeo em Destaque</h2>
+					<h2 data-i18n="index.featured">Vídeo em Destaque</h2>
 					<p>${latest.title}</p>
-					<button id="btn-play-featured">ASSISTIR</button>
+					<button id="btn-play-featured" data-i18n="index.btnwatch">ASSISTIR</button>
 				</div>
 			</div>
 		`;
+
+		translateNewContent();
 
 		document.getElementById('btn-play-featured').addEventListener('click', () => {
 			playVideo(latest.src, latest.title, formatDate(latest.publishedAt), latest.views);

@@ -34,7 +34,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Vídeos - Music Gallery">
 
-    <title>Vídeos | Music Gallery</title>
+    <title data-i18n="videos.meta.title">Vídeos | Music Gallery</title>
 
     <!-- Page Icon -->
     <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
@@ -62,17 +62,17 @@
         <div class="header-left">
             <h1>Music Gallery</h1>
             <span class="separator">|</span>
-            <h2 class="page-title">Todos os Vídeos</h2>
+            <h2 class="page-title" data-i18n="videos.pageTitle">Todos os Vídeos</h2>
         </div>
         <div class="header-right">
             <nav class="menu">
-                <a href="./index.html">Início</a>
+                <a href="./index.html" data-i18n="global.nav.home">Início</a>
                 |
-                <a href="videos.html">Vídeos</a>
+                <a href="videos.html" data-i18n="global.nav.videos">Vídeos</a>
                 |
-                <a href="./sobre.html">Sobre</a>
+                <a href="./sobre.html" data-i18n="global.nav.about">Sobre</a>
                 |
-                <a href="./sugestoes.html">Sugestões</a>
+                <a href="./sugestoes.html" data-i18n="global.nav.suggestions">Sugestões</a>
             </nav>
             <div class="search-wrapper">
                 <button id="searchToggle" class="search-icon">🔍</button>
@@ -113,7 +113,7 @@
             <a href="https://github.com/MMaffi" target="_blank" class="github" title="GitHub">
                 <img src="./assets/icons/github.svg" alt="GitHub">
             </a>
-            <a href="https://mmaffi.github.io" target="_blank" class="portfolio" title="Portfólio">
+            <a href="https://mmaffi.github.io" target="_blank" class="portfolio" title="Portfólio" data-i18n-title="portfolio">
                 <img src="./assets/icons/portfolio.svg" alt="Portfólio">
             </a>
             <a href="mailto:mm.maffi@outlook.com" class="email" title="E-mail">
@@ -121,12 +121,12 @@
             </a>
         </div>
 
-        <p class="copyright">&copy; 2025 Music Gallery - Todos os direitos reservados</p>
+        <p class="copyright" data-i18n="global.copyright">&copy; 2025 Music Gallery - Todos os direitos reservados</p>
 
     </footer>
 
     <!-- Configurações -->
-    <button id="configBtn" title="Configurações">
+    <button id="configBtn" title="Configurações" data-i18n-title="settingsTitle">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
             <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
@@ -137,10 +137,10 @@
     <div id="settings-modal" class="settings-modal">
         <div class="settings-content">
             <span class="close-settings" onclick="toggleSettings(false)">×</span>
-            <h2>Configurações</h2>
+            <h2 data-i18n="global.settings">Configurações</h2>
 
             <div class="setting-group">
-                <label for="languageSelect">Idioma:</label>
+                <label for="languageSelect" data-i18n="global.language">Idioma:</label>
                 <div class="custom-select">
                     <select id="languageSelect">
                         <option value="pt">Português</option>
@@ -150,7 +150,7 @@
             </div>
 
             <div class="setting-group">
-                <label>Tema:</label>
+                <label data-i18n="global.theme">Tema:</label>
                 <div class="theme-toggle">
                     <label class="switch">
                         <input type="checkbox" id="themeSwitch" />
@@ -162,18 +162,21 @@
             </div>
 
             <div class="setting-group">
-                <label>Notificações:</label>
-                <button onclick="alert('Em breve')">Ativar notificações</button>
+                <label data-i18n="global.notification">Notificações:</label>
+                <button onclick="alert('Em breve')" data-i18n="global.btnnotification">Ativar notificações</button>
             </div>
 
             <div class="setting-group">
-                <label>Histórico:</label>
-                <button onclick="clearHistory()">Limpar histórico</button>
+                <label data-i18n="global.history">Histórico:</label>
+                <button onclick="clearHistory()" data-i18n="global.btnhistory">Limpar histórico</button>
             </div>
 
             <div class="setting-group about">
                 <p><strong>Music Gallery</strong> v<span id="siteVersion">...</span></p>
-                <p>por <a href="https://github.com/mmaffi" target="_blank">mmaffi</a></p>
+                <p> 
+                    <span data-i18n="global.by">por </span>
+                    <a href="https://github.com/mmaffi" target="_blank">mmaffi</a>
+                </p>
             </div>
         </div>
     </div>
@@ -185,5 +188,6 @@
     <script src="./javascript/search.js"></script>
     <script src="./javascript/load-version.js"></script>
     <script src="./javascript/config.js"></script>
+    <script src="./javascript/i18n.js"></script>
 </body>
 </html>
