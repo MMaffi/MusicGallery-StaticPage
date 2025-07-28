@@ -183,9 +183,16 @@ function addSeeMoreCard() {
 }
 
 function formatDate(dateString) {
-	const date = new Date(dateString);
-	const options = { day: '2-digit', month: 'long', year: 'numeric' };
-	return date.toLocaleDateString('pt-BR', options);
+    const date = new Date(dateString);
+    const options = { day: '2-digit', month: 'long', year: 'numeric' };
+
+    const localeMap = {
+        pt: 'pt-BR',
+        en: 'en-US'
+    };
+
+    const locale = localeMap[currentLang] || 'pt-BR';
+    return date.toLocaleDateString(locale, options);
 }
 
 function formatViews(views) {

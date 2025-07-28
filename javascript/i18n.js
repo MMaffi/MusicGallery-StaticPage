@@ -3,6 +3,7 @@ let currentLang = localStorage.getItem("lang") || "pt";
 let translations = {};
 
 function setLanguage(lang) {
+    currentLang = lang;
     fetch(`./locales/${lang}.json`)
         .then(res => res.json())
         .then(data => {
@@ -44,6 +45,7 @@ function setLanguage(lang) {
             if (pageTitle) document.title = pageTitle;
 
             localStorage.setItem("lang", lang);
+
         });
 }
 
