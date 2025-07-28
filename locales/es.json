@@ -1,0 +1,90 @@
+{
+    "global": {
+        "title": "Galería Musical",
+        "nav": {
+            "home": "Inicio",
+            "videos": "Videos",
+            "about": "Acerca de",
+            "suggestions": "Sugerencias"
+        },
+        "searchPlaceholder": "Buscar...",
+        "noSuggestions": "No se encontraron sugerencias",
+        "historyLabel": "(historial)",
+        "views": "visualizaciones",
+        "settings": "Configuración",
+        "language": "Idioma",
+        "theme": "Tema",
+        "notification": "Notificación",
+        "btnnotification": "Activar notificaciones",
+        "history": "Historial",
+        "btnhistory": "Limpiar historial",
+        "by": "por ",
+        "copyright": "© 2025 Galería Musical - Todos los derechos reservados"
+    },
+
+    "index": {
+        "tagline": "Mira covers de canciones increíbles con visuales únicos.",
+        "featured": "Video Destacado",
+        "btnwatch": "VER",
+        "recentVideos": "Videos Recientes"
+    },
+
+    "videos": {
+        "pageTitle": "Todos los Videos",
+        "meta": {
+            "title": "Videos - Galería Musical"
+        }
+    },
+
+    "about": {
+        "pageTitle": "Acerca de",
+        "meta": {
+            "title": "Acerca de - Galería Musical"
+        },
+        "sectionTitle": "Acerca de Galería Musical",
+        "paragraphs": [
+            "¡Hola! Soy <strong>Mateus Maffi</strong>, músico apasionado y creador de <strong>Galería Musical</strong>. Este espacio nació con el objetivo de compartir mi viaje musical a través de <strong>covers de canciones nacionales e internacionales</strong>, interpretadas con mucho sentimiento y dedicación.",
+            "Desde muy pequeño, la música ha sido parte de mi vida. A lo largo de los años, aprendí a tocar y desarrollar mi voz, siempre buscando transmitir la esencia de cada canción. Cada video aquí representa un poco de mi identidad artística y de lo que creo en la música: <em>emoción, autenticidad y conexión</em>.",
+            "En <strong>Galería Musical</strong> encontrarás covers de varios géneros — desde <em>sertanejo hasta MPB, del pop al rock</em> — todos grabados con cariño, creatividad y atención al detalle.",
+            "Siéntete libre de explorar los videos, dejar sugerencias, seguirme en las redes sociales y, por supuesto, ¡compartir con amigos! Este proyecto está hecho con amor y está en constante evolución.",
+            "Gracias por ser parte de esto. 🎵"
+        ]
+    },
+
+    "suggestions": {
+        "pageTitle": "Sugerencias",
+        "meta": {
+            "title": "Sugerencias - Galería Musical"
+        },
+        "backButton": "Volver",
+        "form": {
+            "heading": "Sugerir una Canción",
+            "labels": {
+                "name": "Tu Nombre:",
+                "email": "Tu Correo:",
+                "song": "Nombre de la Canción:",
+                "artist": "Artista/Banda:",
+                "message": "Mensaje (opcional):"
+            },
+            "submitButton": "Enviar Sugerencia"
+        }
+    },
+
+    "thankyou": {
+        "meta": {
+            "title": "¡Gracias!"
+        },
+        "heading": "¡Gracias por tu sugerencia! 🎵",
+        "message": "Hemos recibido tu canción y la evaluaremos con cariño.",
+        "buttonText": "Volver al inicio"
+    },
+
+    "toasts": {
+        "clearHistory": "¡Historial limpiado con éxito!",
+        "soon": "¡Próximamente!",
+        "error": "Algo salió mal. Inténtalo de nuevo."
+    },
+
+    "settingsTitle": "Configuración",
+    "portfolio": "Portafolio"
+}

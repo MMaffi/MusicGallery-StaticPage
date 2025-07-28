@@ -162,7 +162,6 @@ function addVideoToGallery(video) {
 	div.innerHTML = `
 		<img src="${video.thumb}" alt="${video.title}">
 		<p class="video-title">${video.title}</p>
-		<p class="video-date">${formatDate(video.publishedAt)}</p>
 	`;
 	
 	div.addEventListener('click', () => {
@@ -188,7 +187,8 @@ function formatDate(dateString) {
 
     const localeMap = {
         pt: 'pt-BR',
-        en: 'en-US'
+        en: 'en-US',
+		es: 'es-ES'
     };
 
     const locale = localeMap[currentLang] || 'pt-BR';
