@@ -113,7 +113,8 @@ function updateSuggestions(query) {
 	const matches = allVideos.filter(v => v.title.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
 
 	if (matches.length === 0) {
-		suggestions.innerHTML = `<div class="no-match">Nenhuma sugestão encontrada</div>`;
+		const noSuggestionsText = translations?.global.noSuggestions || "Nenhuma sugestão encontrada";
+		suggestions.innerHTML = `<div class="no-match">${noSuggestionsText}</div>`;
 		suggestions.style.display = 'block';
 		return;
 	}
@@ -126,22 +127,18 @@ function updateSuggestions(query) {
 }
 
 function showRecentHistory() {
-	if (searchHistory.length === 0) {
-		suggestions.style.display = 'none';
-		return;
-	}
+    if (searchHistory.length === 0) {
+        suggestions.style.display = 'none';
+        return;
+    }
 
-	suggestions.innerHTML = searchHistory.slice(0, 5).map(h =>
-		`<div class="suggestion" data-title="${h}">${h} <span style="opacity: 0.6;">(histórico)</span></div>`
-	).join('');
+    const historyLabel = translations.global.historyLabel || "(histórico)";
 
-	suggestions.innerHTML += `
-		<div class="clear-history" style="text-align: center; color: #aaa; padding: 8px; cursor: pointer; border-top: 1px solid #444;">
-			Limpar histórico
-		</div>
-	`;
+    suggestions.innerHTML = searchHistory.slice(0, 5).map(h =>
+        `<div class="suggestion" data-title="${h}">${h} <span style="opacity: 0.6;">${historyLabel}</span></div>`
+    ).join('');
 
-	suggestions.style.display = 'block';
+    suggestions.style.display = 'block';
 }
 
 // Clique em sugestão
@@ -151,20 +148,6 @@ suggestions.addEventListener('click', (e) => {
 		searchInput.value = title;
 		suggestions.style.display = 'none';
 		executeSearch(title);
-	}
-});
-
-// Clique para limpar histórico
-suggestions.addEventListener('click', (e) => {
-	if (e.target && e.target.matches('div[data-title]')) {
-		const title = e.target.getAttribute('data-title');
-		searchInput.value = title;
-		suggestions.style.display = 'none';
-		executeSearch(title);
-	} else if (e.target && e.target.classList.contains('clear-history')) {
-		localStorage.removeItem('searchHistory');
-		searchHistory = [];
-		suggestions.style.display = 'none';
 	}
 });
 

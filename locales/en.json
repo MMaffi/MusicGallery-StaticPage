@@ -1,0 +1,90 @@
+{
+    "global": {
+        "title": "Music Gallery",
+        "nav": {
+            "home": "Home",
+            "videos": "Videos",
+            "about": "About",
+            "suggestions": "Suggestions"
+        },
+        "searchPlaceholder": "Search...",
+        "noSuggestions": "No suggestions found",
+        "historyLabel": "(history)",
+        "views": "views",
+        "settings": "Settings",
+        "language": "Language",
+        "theme": "Theme",
+        "notification": "Notification",
+        "btnnotification": "Enable notifications",
+        "history": "History",
+        "btnhistory": "Clear history",
+        "by": "by ",
+        "copyright": "© 2025 Music Gallery - All rights reserved"
+    },
+
+    "index": {
+        "tagline": "Watch amazing music covers with unique visuals.",
+        "featured": "Featured Video",
+        "btnwatch": "WATCH",
+        "recentVideos": "Recent Videos"
+    },
+
+    "videos": {
+        "pageTitle": "All Videos",
+        "meta": {
+            "title": "Videos - Music Gallery"
+        }
+    },
+
+    "about": {
+        "pageTitle": "About",
+        "meta": {
+            "title": "About - Music Gallery"
+        },
+        "sectionTitle": "About Music Gallery",
+        "paragraphs": [
+            "Hi! I'm <strong>Mateus Maffi</strong>, a passionate musician and the creator of <strong>Music Gallery</strong>. This space was created to share my musical journey through <strong>covers of national and international songs</strong>, performed with great feeling and dedication.",
+            "Music has been part of my life from a very young age. Over the years, I’ve learned to play and develop my voice, always aiming to convey the essence of each song. Each video here represents a bit of my artistic identity and what I believe music should be: <em>emotion, authenticity, and connection</em>.",
+            "At <strong>Music Gallery</strong>, you’ll find covers of various genres — from <em>sertanejo to MPB, from pop to rock</em> — all recorded with care, creativity, and attention to detail.",
+            "Feel free to explore the videos, leave suggestions, follow me on social media, and of course, share with friends! This project is made with love and is constantly evolving.",
+            "Thank you for being part of it. 🎵"
+        ]
+    },
+
+    "suggestions": {
+        "pageTitle": "Suggestions",
+        "meta": {
+            "title": "Suggestions - Music Gallery"
+        },
+        "backButton": "Back",
+        "form": {
+            "heading": "Suggest a Song",
+            "labels": {
+                "name": "Your Name:",
+                "email": "Your Email:",
+                "song": "Song Name:",
+                "artist": "Artist/Band:",
+                "message": "Message (optional):"
+            },
+            "submitButton": "Send Suggestion"
+        }
+    },
+
+    "thankyou": {
+        "meta": {
+            "title": "Thank you!"
+        },
+        "heading": "Thank you for your suggestion! 🎵",
+        "message": "We have received your song and will review it with care.",
+        "buttonText": "Back to home"
+    },
+
+    "toasts": {
+        "clearHistory": "History cleared successfully!",
+        "soon": "Coming soon!",
+        "error": "Something went wrong. Please try again."
+    },
+
+    "settingsTitle": "Settings",
+    "portfolio": "Portfolio"
+}

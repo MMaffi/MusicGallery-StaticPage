@@ -1,0 +1,240 @@
+/* ===============================
+======= index e Videos page ======
+=============================== */
+
+body.light-theme {
+	background-color: #f5f5f5;
+	color: #111;
+}
+
+/* Header */
+body.light-theme header {
+	background-color: #ffffff;
+	color: #111;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+body.light-theme header .separator {
+    color: #555;
+}
+
+body.light-theme header .page-title {
+    color: #555;
+}
+
+body.light-theme .tagline {
+	color: #555;
+}
+
+/* Menu */
+body.light-theme nav.menu a {
+	color: #444;
+	text-decoration: none;
+}
+
+body.light-theme nav.menu a:hover {
+	color: #007acc;
+}
+
+body.light-theme .menu a.active {
+	color: #007acc;
+	font-weight: bold;
+}
+
+/* Botão de busca */
+body.light-theme .search-icon {
+	color: #000;
+}
+
+/* Campo de busca */
+body.light-theme #searchInput {
+	background: #fff;
+	color: #111;
+	border: 1px solid #ccc;
+}
+
+/* Sugestões */
+body.light-theme #suggestions {
+	background-color: #fff;
+	border-color: #ccc;
+	color: #111;
+}
+
+body.light-theme .suggestion {
+	background-color: #fff;
+	color: #111;
+}
+
+body.light-theme .suggestion:hover,
+body.light-theme .suggestion.active {
+	background-color: #f0f0f0;
+	color: #000;
+}
+
+body.light-theme .no-match {
+	color: #777;
+}
+
+/* Galeria */
+body.light-theme .gallery-subtitle {
+	color: #333;
+}
+
+body.light-theme .gallery-item p {
+	color: #111;
+}
+
+body.light-theme .gallery-item .video-date {
+	color: #fff;
+}
+
+/* Modal do vídeo */
+body.light-theme .modal-content {
+	background-color: #fff;
+	color: #000;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme #player-title {
+    color: #000;
+}
+
+/* Modal: data e views */
+body.light-theme #player-meta {
+	color: #555;
+}
+
+body.light-theme #player-meta .modal-date {
+    color: #555;
+}
+
+/* Botão de fechar modal */
+body.light-theme .close-button {
+	color: #000;
+}
+
+body.light-theme .close-button:hover {
+    color: red;
+}
+
+/* Rodapé */
+body.light-theme footer {
+	background-color: #eee;
+	color: #333;
+}
+
+body.light-theme footer a img {
+	filter: none;
+}
+
+/* Botão de configurações */
+body.light-theme #configBtn {
+	background-color: #ddd;
+	color: #000;
+}
+
+body.light-theme #configBtn:hover {
+	background-color: #bbb;
+}
+
+/* Modal de configurações */
+body.light-theme .settings-content {
+	background-color: #fff;
+	color: #111;
+}
+
+body.light-theme .setting-group select,
+body.light-theme .setting-group button {
+	background: #f0f0f0;
+	color: #000;
+}
+
+body.light-theme .close-settings {
+	color: #000;
+}
+
+body.light-theme .about {
+	color: #444;
+}
+
+/* Custom Select (ícone removido por padrão) */
+body.light-theme .custom-select::after {
+	border-color: #111;
+}
+
+/* Toggle Switch */
+body.light-theme .switch .slider {
+	background-color: #ccc;
+}
+
+body.light-theme .switch .emoji {
+	background-color: #fff;
+	color: #000;
+}
+
+/* Links visitados */
+body.light-theme a:visited {
+	color: #0000EE;
+}
+
+/* ===============================
+============ Sobre page ==========
+=============================== */
+
+body.light-theme .sobre-container h2 {
+    color: #111;
+}
+
+body.light-theme .sobre-container p {
+    color: #111;
+}
+
+/* ===============================
+========= Suggestion page ========
+=============================== */
+
+body.light-theme .container {
+	background-color: #ffffff;
+	color: #222;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 30px;
+	max-width: 600px;
+	margin: 80px auto;
+}
+
+body.light-theme .container label {
+	color: #333;
+	font-weight: bold;
+}
+
+body.light-theme .container input,
+body.light-theme .container textarea {
+	background-color: #fff;
+	color: #222;
+	border: 1px solid #ccc;
+}
+
+body.light-theme .container input:focus,
+body.light-theme .container textarea:focus {
+	outline: none;
+	border-color: #888;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .back {
+	background-color: #e63946;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background-color 0.2s ease;
+}
+
+body.light-theme .back:hover {
+	background-color: #cc2e3b;
+}

@@ -1,0 +1,55 @@
+.toast {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 16px 24px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+	z-index: 10000;
+	overflow: hidden;
+	min-width: 220px;
+	max-width: 400px;
+	color: #fff;
+	font-weight: 600;
+	user-select: none;
+	cursor: default;
+}
+
+/* Cores por tipo */
+.toast.success {
+	background-color: #4caf50;
+}
+.toast.error {
+	background-color: #f44336;
+}
+.toast.info {
+	background-color: #2196f3;
+}
+.toast.warning {
+	background-color: #ff9800;
+}
+
+/* Barrinha de progresso */
+.toast .progress-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 4px;
+	width: 100%;
+	transition: width 0.1s linear;
+}
+
+/* Cor da barrinha */
+.toast.success .progress-bar {
+	background-color: #2e7d32;
+}
+.toast.error .progress-bar {
+	background-color: #b71c1c;
+}
+.toast.info .progress-bar {
+	background-color: #1565c0;
+}
+.toast.warning .progress-bar {
+	background-color: #ef6c00;
+}

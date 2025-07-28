@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sugestões - MusicGallery</title>
+
+	<!-- Css links -->
     <link rel="stylesheet" href="./css/suggestions.css">
+	<link rel="stylesheet" href="./css/configstyle.css">
+	<link rel="stylesheet" href="./css/lightmode.css">
+    <link rel="stylesheet" href="./css/toastify.css">
 
     <!-- Page Icon -->
     <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
@@ -15,33 +20,95 @@
 </head>
 <body>
 
-	<a href="./index.html"><button class="back">Voltar</button></a>
+	<a href="./index.html"><button class="back" data-i18n="suggestions.backButton">Voltar</button></a>
 
     <div class="container">
-		<h1>Sugira uma Música</h1>
+		<h1 data-i18n="suggestions.form.heading">Sugira uma Música</h1>
 		<form action="https://formsubmit.co/mm.maffi@outlook.com" method="POST">
 			<input type="hidden" name="_captcha" value="false">
 			<input type="hidden" name="_subject" value="Nova sugestão de música!">
 			<input type="hidden" name="_template" value="box">
 			<input type="hidden" name="_next" value="https://mmaffi.github.io/MusicGallery/thankyou.html">
 
-			<label for="name">Seu Nome:</label>
+			<label for="name" data-i18n="suggestions.form.labels.name">Seu Nome:</label>
 			<input type="text" id="name" name="Nome" required>
 
-			<label for="email">Seu E-mail:</label>
+			<label for="email" data-i18n="suggestions.form.labels.email">Seu E-mail:</label>
 			<input type="email" id="email" name="Email" required>
 
-			<label for="song">Nome da Música:</label>
+			<label for="song" data-i18n="suggestions.form.labels.song">Nome da Música:</label>
 			<input type="text" id="song" name="Música" required>
 
-			<label for="artist">Artista/Banda:</label>
+			<label for="artist" data-i18n="suggestions.form.labels.artist">Artista/Banda:</label>
 			<input type="text" id="artist" name="Artista" required>
 
-			<label for="message">Mensagem (opcional):</label>
+			<label for="message" data-i18n="suggestions.form.labels.message">Mensagem (opcional):</label>
 			<textarea id="message" name="Mensagem" rows="4"></textarea>
 
-			<button type="submit">Enviar Sugestão</button>
+			<button type="submit" class="submitbutton" data-i18n="suggestions.form.submitButton">Enviar Sugestão</button>
 		</form>
     </div>
+
+	<!-- Configurações -->
+    <button id="configBtn" title="Configurações" data-i18n-title="settingsTitle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+        </svg>
+    </button>
+
+    <!-- Configurações Modal -->
+    <div id="settings-modal" class="settings-modal">
+        <div class="settings-content">
+            <span class="close-settings" onclick="toggleSettings(false)">×</span>
+            <h2 data-i18n="global.settings">Configurações</h2>
+
+            <div class="setting-group">
+                <label for="languageSelect" data-i18n="global.language">Idioma:</label>
+                <div class="custom-select">
+                    <select id="languageSelect">
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label data-i18n="global.theme">Tema:</label>
+                <div class="theme-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="themeSwitch" />
+                        <span class="slider">
+                            <span class="emoji"></span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label data-i18n="global.notification">Notificações:</label>
+                <button onclick="notify()" data-i18n="global.btnnotification">Ativar notificações</button>
+            </div>
+
+            <div class="setting-group">
+                <label data-i18n="global.history">Histórico:</label>
+                <button onclick="clearHistory()" data-i18n="global.btnhistory">Limpar histórico</button>
+            </div>
+
+            <div class="setting-group about">
+                <p><strong>Music Gallery</strong> v<span id="siteVersion">...</span></p>
+                <p> 
+                    <span data-i18n="global.by">por </span>
+                    <a href="https://github.com/mmaffi" target="_blank">mmaffi</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+	<script src="./javascript/config.js"></script>
+	<script src="./javascript/load-version.js"></script>
+    <script src="./javascript/i18n.js"></script>
+    <script src="./javascript/toastify.js"></script>
 </body>
 </html>

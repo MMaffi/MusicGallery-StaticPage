@@ -8,7 +8,10 @@ function playVideo(src, title, date = '', views = '') {
 
 	videoTitle.textContent = title;
 	videoDate.textContent = date;
-	videoViews.textContent = views ? `${formatViews(views)} visualizações` : '';
+
+	const viewsText = translations?.global?.views || 'visualizações';
+    videoViews.textContent = views ? `${formatViews(views)} ${viewsText}` : '';
+	
 	video.src = src;
   	modal.style.display = 'block';
 	document.body.classList.add("modal-open");
