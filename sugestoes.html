@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/suggestions.css">
 	<link rel="stylesheet" href="./css/configstyle.css">
 	<link rel="stylesheet" href="./css/lightmode.css">
+    <link rel="stylesheet" href="./css/toastify.css">
 
     <!-- Page Icon -->
     <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
@@ -86,7 +87,7 @@
 
             <div class="setting-group">
                 <label data-i18n="global.notification">Notificações:</label>
-                <button onclick="alert('Em breve')" data-i18n="global.btnnotification">Ativar notificações</button>
+                <button onclick="notify()" data-i18n="global.btnnotification">Ativar notificações</button>
             </div>
 
             <div class="setting-group">
@@ -107,5 +108,6 @@
 	<script src="./javascript/config.js"></script>
 	<script src="./javascript/load-version.js"></script>
     <script src="./javascript/i18n.js"></script>
+    <script src="./javascript/toastify.js"></script>
 </body>
 </html>

@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="./css/mediaquery.css">
     <link rel="stylesheet" href="./css/configstyle.css">
     <link rel="stylesheet" href="./css/lightmode.css">
+    <link rel="stylesheet" href="./css/toastify.css">
     
     <!-- Link Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
@@ -156,7 +157,7 @@
 
             <div class="setting-group">
                 <label data-i18n="global.notification">Notificações:</label>
-                <button onclick="alert('Em breve')" data-i18n="global.btnnotification">Ativar notificações</button>
+                <button onclick="notify()" data-i18n="global.btnnotification">Ativar notificações</button>
             </div>
 
             <div class="setting-group">
@@ -180,5 +181,6 @@
     <script src="./javascript/load-version.js"></script>
     <script src="./javascript/config.js"></script>
     <script src="./javascript/i18n.js"></script>
+    <script src="./javascript/toastify.js"></script>
 </body>
 </html>

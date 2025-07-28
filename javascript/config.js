@@ -9,7 +9,7 @@ function toggleSettings(show) {
 }
 
 // Função para notificações
-function notifySoon() {
+function notify() {
 	showToast("Em breve!", 4000, "info");
 }
 
