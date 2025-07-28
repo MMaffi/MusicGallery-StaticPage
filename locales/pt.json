@@ -79,6 +79,12 @@
         "buttonText": "Voltar para o início"
     },
 
+    "toasts": {
+        "clearHistory": "Histórico limpo com sucesso!",
+        "soon": "Em breve!",
+        "error": "Algo deu errado. Tente novamente."
+    },
+
     "settingsTitle": "Configurações",
     "portfolio": "Portfólio"
 }

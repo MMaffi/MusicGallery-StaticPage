@@ -10,7 +10,8 @@ function toggleSettings(show) {
 
 // Função para notificações
 function notify() {
-	showToast("Em breve!", 4000, "info");
+	const message = translations?.toasts?.soon || "Em breve!";
+	showToast(message, 4000, "info");
 }
 
 // Função para limpar histórico
@@ -20,7 +21,8 @@ function clearHistory() {
 
 	suggestions.style.display = 'none';
 
-	showToast("Histórico limpo com sucesso!", 4000, "success");
+	const message = translations?.toasts?.clearHistory || "Histórico limpo com sucesso!";
+	showToast(message, 4000, "success");
 }
 
 // Light Mode

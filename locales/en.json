@@ -79,6 +79,12 @@
         "buttonText": "Back to home"
     },
 
+    "toasts": {
+        "clearHistory": "History cleared successfully!",
+        "soon": "Coming soon!",
+        "error": "Something went wrong. Please try again."
+    },
+
     "settingsTitle": "Settings",
     "portfolio": "Portfolio"
 }
