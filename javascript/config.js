@@ -8,13 +8,19 @@ function toggleSettings(show) {
 	modal.classList.toggle('active', show);
 }
 
+// Função para notificações
+function notifySoon() {
+	showToast("Em breve!", 4000, "info");
+}
+
+// Função para limpar histórico
 function clearHistory() {
 	localStorage.removeItem('searchHistory');
 	searchHistory = [];
 
 	suggestions.style.display = 'none';
 
-	alert('Histórico de busca limpo!');
+	showToast("Histórico limpo com sucesso!", 4000, "success");
 }
 
 // Light Mode
