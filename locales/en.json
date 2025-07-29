@@ -16,6 +16,7 @@
         "theme": "Theme",
         "notification": "Notification",
         "btnnotification": "Enable notifications",
+        "btndisablenotification": "Disable notifications",
         "history": "History",
         "btnhistory": "Clear history",
         "by": "by ",
