@@ -16,6 +16,7 @@
         "theme": "Theme",
         "notification": "Notification",
         "btnnotification": "Enable notifications",
+        "btndisablenotification": "Disable notifications",
         "history": "History",
         "btnhistory": "Clear history",
         "by": "by ",
@@ -81,7 +82,10 @@
 
     "toasts": {
         "clearHistory": "History cleared successfully!",
-        "soon": "Coming soon!",
+        "notifications": "Notifications Enabled!",
+        "disablenotifications": "Notifications disabled!",
+        "noNotifications": "No notifications enabled.",
+        "noPermission": "Permission denied!",
         "error": "Something went wrong. Please try again."
     },
 

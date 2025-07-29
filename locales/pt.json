@@ -16,6 +16,7 @@
         "theme": "Tema",
         "notification": "Notificação",
         "btnnotification": "Ativar notificações",
+        "btndisablenotification": "Desativar notificações",
         "history": "Histórico",
         "btnhistory": "Limpar histórico",
         "by": "por ",
@@ -81,7 +82,10 @@
 
     "toasts": {
         "clearHistory": "Histórico limpo com sucesso!",
-        "soon": "Em breve!",
+        "notifications": "Notificações Ativadas!",
+        "disablenotifications": "Notificações desativadas!",
+        "noNotifications": "Nenhuma notificação ativada.",
+        "noPermission": "Permissão negada!",
         "error": "Algo deu errado. Tente novamente."
     },
 

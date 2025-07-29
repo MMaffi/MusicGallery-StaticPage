@@ -89,6 +89,8 @@
             <div class="setting-group">
                 <label data-i18n="global.notification">Notificações:</label>
                 <button onclick="notify()" data-i18n="global.btnnotification">Ativar notificações</button>
+                <br><br>
+                <button onclick="disableNotifications()" data-i18n="global.btndisablenotification">Desativar notificações</button>
             </div>
 
             <div class="setting-group">
@@ -110,5 +112,11 @@
 	<script src="./javascript/load-version.js"></script>
     <script src="./javascript/i18n.js"></script>
     <script src="./javascript/toastify.js"></script>
+
+    <script type="module">
+        import { notify, disableNotifications } from './javascript/firebase-notifications.js';
+        window.notify = notify;
+        window.disableNotifications = disableNotifications;
+    </script>
 </body>
 </html>
