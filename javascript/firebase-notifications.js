@@ -24,7 +24,12 @@ export async function notify() {
     }
 
     const permission = await Notification.requestPermission();
-    if (permission !== "granted") return alert("Permissão negada!");
+    
+    if (permission !== "granted") {
+        const message = translations?.toasts?.noPermission || "Permissão negada!";
+        showToast(message, 4000, "error");
+        return;
+    }
 
     token = await getToken(messaging, {
         vapidKey: "BOqfZhGWsSKF5XOqLBZQG1GU6PJAYasFrdoggqYUnw8jERLk3zLqCdemOZcUTGh26K0oPuuY-Tubv4YvNuJ9uKg"
@@ -42,7 +47,8 @@ export async function notify() {
 export async function disableNotifications() {
     const token = localStorage.getItem('fcmToken');
     if (!token) {
-        alert("Nenhuma notificação ativada.");
+        const message = translations?.toasts?.noNotifications || "Nenhuma notificação ativada.";
+        showToast(message, 4000, "warning");
         return;
     }
 
@@ -54,5 +60,6 @@ export async function disableNotifications() {
     }
 
     localStorage.removeItem('fcmToken');
-    alert("Notificações desativadas!");
+    const message = translations?.toasts?.disablenotifications || "Notificações desativadas!";
+    showToast(message, 4000, "success");
 }

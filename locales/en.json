@@ -83,6 +83,9 @@
     "toasts": {
         "clearHistory": "History cleared successfully!",
         "notifications": "Notifications Enabled!",
+        "disablenotifications": "Notifications disabled!",
+        "noNotifications": "No notifications enabled.",
+        "noPermission": "Permission denied!",
         "error": "Something went wrong. Please try again."
     },
 
