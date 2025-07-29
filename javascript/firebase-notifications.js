@@ -67,7 +67,12 @@ export async function disableNotifications() {
     }
 
     try {
-        await deleteToken(messaging);
+
+        await navigator.serviceWorker.register('/MusicGallery/firebase-messaging-sw.js');
+        const swRegistration = await navigator.serviceWorker.ready;
+
+        await deleteToken(messaging, { serviceWorkerRegistration: swRegistration, token });
+
         console.log("Token deletado do Firebase:", token);
     } catch (error) {
         console.warn("Erro ao deletar token do Firebase:", error);
