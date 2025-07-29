@@ -24,23 +24,34 @@ export async function notify() {
     }
 
     const permission = await Notification.requestPermission();
-    
     if (permission !== "granted") {
         const message = translations?.toasts?.noPermission || "Permissão negada!";
         showToast(message, 4000, "error");
         return;
     }
 
-    token = await getToken(messaging, {
-        vapidKey: "BOqfZhGWsSKF5XOqLBZQG1GU6PJAYasFrdoggqYUnw8jERLk3zLqCdemOZcUTGh26K0oPuuY-Tubv4YvNuJ9uKg"
-    });
+    try {
 
-    if (token) {
-        localStorage.setItem('fcmToken', token);
-        console.log("Token salvo no localStorage:", token);
-        const message = translations?.toasts?.notifications || "Notificações Ativadas!";
-        showToast(message, 4000, "success");
+        const registration = await navigator.serviceWorker.register('/MusicGallery/firebase-messaging-sw.js');
+
+        token = await getToken(messaging, {
+            vapidKey: "BOqfZhGWsSKF5XOqLBZQG1GU6PJAYasFrdoggqYUnw8jERLk3zLqCdemOZcUTGh26K0oPuuY-Tubv4YvNuJ9uKg",
+            serviceWorkerRegistration: registration
+        });
+
+        if (token) {
+            localStorage.setItem('fcmToken', token);
+            console.log("Token salvo no localStorage:", token);
+            const message = translations?.toasts?.notifications || "Notificações Ativadas!";
+            showToast(message, 4000, "success");
+        }
+    } catch (err) {
+        
+        console.error("Erro ao registrar o Service Worker ou obter token:", err);
+        const message = translations?.toasts?.noPermission || "Permissão negada!";
+        showToast(message, 4000, "error");
     }
+
     return token;
 }
 
@@ -53,7 +64,7 @@ export async function disableNotifications() {
     }
 
     try {
-        await deleteToken(messaging, token);
+        await deleteToken(messaging);
         console.log("Token deletado do Firebase:", token);
     } catch (error) {
         console.warn("Erro ao deletar token do Firebase:", error);
