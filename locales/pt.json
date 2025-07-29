@@ -81,7 +81,7 @@
 
     "toasts": {
         "clearHistory": "Histórico limpo com sucesso!",
-        "soon": "Em breve!",
+        "notifications": "Notificações Ativadas!",
         "error": "Algo deu errado. Tente novamente."
     },
 

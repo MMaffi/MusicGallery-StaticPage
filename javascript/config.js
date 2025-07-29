@@ -8,12 +8,6 @@ function toggleSettings(show) {
 	modal.classList.toggle('active', show);
 }
 
-// Função para notificações
-function notify() {
-	const message = translations?.toasts?.soon || "Em breve!";
-	showToast(message, 4000, "info");
-}
-
 // Função para limpar histórico
 function clearHistory() {
 	localStorage.removeItem('searchHistory');
