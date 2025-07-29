@@ -32,11 +32,14 @@ export async function notify() {
 
     try {
 
-        const registration = await navigator.serviceWorker.register('/MusicGallery/firebase-messaging-sw.js');
+        await navigator.serviceWorker.register('/MusicGallery/firebase-messaging-sw.js');
+
+        // Aguarda até que o service worker esteja ativo e pronto
+        const swRegistration = await navigator.serviceWorker.ready;
 
         token = await getToken(messaging, {
             vapidKey: "BOqfZhGWsSKF5XOqLBZQG1GU6PJAYasFrdoggqYUnw8jERLk3zLqCdemOZcUTGh26K0oPuuY-Tubv4YvNuJ9uKg",
-            serviceWorkerRegistration: registration
+            serviceWorkerRegistration: swRegistration
         });
 
         if (token) {
