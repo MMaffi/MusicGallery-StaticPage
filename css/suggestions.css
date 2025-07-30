@@ -70,7 +70,8 @@ button.submitbutton {
     transition: background 0.3s;
 }
 
-button:hover {
+button.submitbutton:hover,
+button.back:hover {
     background-color: #e03b3b;
 }
 
