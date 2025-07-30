@@ -215,3 +215,8 @@ links.forEach(link => {
 		link.classList.add('active');
 	}
 });
+
+// Atualiza sininho da notificação ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+	updateNotificationIcon();
+});

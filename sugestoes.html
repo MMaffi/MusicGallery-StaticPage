@@ -87,7 +87,12 @@
             </div>
 
             <div class="setting-group">
-                <label data-i18n="global.notification">Notificações:</label>
+                <label>
+                    <span data-i18n="global.notification">Notificações</span>
+                    <span id="notificationIcon" title="Status das notificações">
+                        <img src="./assets/icons/bell-off.svg" id="bellIcon">
+                    </span>
+                </label>
                 <button onclick="notify()" data-i18n="global.btnnotification">Ativar notificações</button>
                 <br><br>
                 <button onclick="disableNotifications()" data-i18n="global.btndisablenotification">Desativar notificações</button>

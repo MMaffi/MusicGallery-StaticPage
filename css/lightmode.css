@@ -157,6 +157,14 @@ body.light-theme .about {
 	color: #444;
 }
 
+body.light-theme .setting-group img#bellIcon {
+    filter: brightness(0) invert(0);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
 /* Custom Select (ícone removido por padrão) */
 body.light-theme .custom-select::after {
 	border-color: #111;

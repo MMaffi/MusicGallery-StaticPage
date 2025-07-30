@@ -173,3 +173,11 @@
 .setting-group.about a:visited {
 	color: #0000EE;
 }
+
+.setting-group img#bellIcon {
+    filter: brightness(0) invert(1);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-left: 6px;
+}

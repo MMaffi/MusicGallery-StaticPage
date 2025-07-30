@@ -45,6 +45,9 @@ export async function notify() {
         if (token) {
             localStorage.setItem('fcmToken', token);
             console.log("Token salvo no localStorage:", token);
+
+            updateNotificationIcon();
+
             const message = translations?.toasts?.notifications || "Notificações Ativadas!";
             showToast(message, 4000, "success");
         }
@@ -79,6 +82,22 @@ export async function disableNotifications() {
     }
 
     localStorage.removeItem('fcmToken');
+
+    updateNotificationIcon();
+
     const message = translations?.toasts?.disablenotifications || "Notificações desativadas!";
     showToast(message, 4000, "success");
+}
+
+window.updateNotificationIcon = function updateNotificationIcon() {
+    const bellIcon = document.getElementById('bellIcon');
+    const token = localStorage.getItem('fcmToken');
+
+    if (bellIcon) {
+        if (token) {
+            bellIcon.src = "./assets/icons/bell-on.svg";
+        } else {
+            bellIcon.src = "./assets/icons/bell-off.svg";
+        }
+    }
 }
