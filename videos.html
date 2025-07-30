@@ -140,33 +140,48 @@
             <span class="close-settings" onclick="toggleSettings(false)">×</span>
             <h2 data-i18n="global.settings">Configurações</h2>
 
-            <div class="setting-group">
-                <label for="languageSelect" data-i18n="global.language">Idioma:</label>
-                <div class="custom-select">
-                    <select id="languageSelect">
-                        <option value="pt">Português</option>
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                    </select>
+            <div class="setting-row">
+                <div class="setting-item">
+                    <label data-i18n="global.language">Idioma:</label>
+                    <div class="language-dropdown">
+                        <button id="selectedLang" class="dropdown-toggle">
+                            <img src="./assets/flags/br.svg" alt="Bandeira do Brasil" />
+                            <span>Português</span>
+                        </button>
+                        <ul class="dropdown-options">
+                            <li data-lang="pt">
+                                <img src="./assets/flags/br.svg" alt="Bandeira do Brasil" />
+                                <span>Português</span>
+                            </li>
+                            <li data-lang="en">
+                                <img src="./assets/flags/us.svg" alt="Bandeira dos EUA" />
+                                <span>English</span>
+                            </li>
+                            <li data-lang="es">
+                                <img src="./assets/flags/es.svg" alt="Bandeira da Espanha" />
+                                <span>Español</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div class="setting-group">
-                <label data-i18n="global.theme">Tema:</label>
-                <div class="theme-toggle">
-                    <label class="switch">
-                        <input type="checkbox" id="themeSwitch" />
-                        <span class="slider">
-                            <span class="emoji"></span>
-                        </span>
-                    </label>
+                <div class="setting-item">
+                    <label data-i18n="global.theme">Tema:</label>
+                    <div class="theme-dropdown">
+                        <button id="selectedTheme" class="dropdown-toggle">
+                            <span>Dark</span>
+                        </button>
+                        <ul class="dropdown-options">
+                            <li data-theme="dark"><span>Dark</span></li>
+                            <li data-theme="light"><span>Light</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="setting-group">
                 <label>
                     <span data-i18n="global.notification">Notificações</span>
-                    <span id="notificationIcon" title="Status das notificações">
+                    <span id="notificationIcon" title="Status das notificações" data-i18n-title="statusnotification">
                         <img src="./assets/icons/bell-off.svg" id="bellIcon">
                     </span>
                 </label>

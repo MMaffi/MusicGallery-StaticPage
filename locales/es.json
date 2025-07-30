@@ -42,6 +42,7 @@
         "meta": {
             "title": "Acerca de - Galería Musical"
         },
+        "visitors": "Visitantes",
         "sectionTitle": "Acerca de Galería Musical",
         "paragraphs": [
             "¡Hola! Soy <strong>Mateus Maffi</strong>, músico apasionado y creador de <strong>Galería Musical</strong>. Este espacio nació con el objetivo de compartir mi viaje musical a través de <strong>covers de canciones nacionales e internacionales</strong>, interpretadas con mucho sentimiento y dedicación.",
@@ -90,5 +91,6 @@
     },
 
     "settingsTitle": "Configuración",
+    "statusnotification": "Estado de la Notificación",
     "portfolio": "Portafolio"
 }
