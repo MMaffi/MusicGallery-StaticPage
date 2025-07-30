@@ -43,3 +43,11 @@
     margin-bottom: 15px;
     text-align: justify;
 }
+
+.visitor-count {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-left: 8px;
+    margin-top: -4px;
+    font-style: italic;
+}
