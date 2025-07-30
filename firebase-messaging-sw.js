@@ -17,6 +17,7 @@ messaging.onBackgroundMessage((payload) => {
     const notificationOptions = {
         body: payload.notification.body,
         icon: './assets/favicon/web-app-manifest-192x192.png',
+        badge: './assets/favicon/favicon-96x96.png',
         data: {
             url: new URL('/MusicGallery', self.location.origin).href
         }
