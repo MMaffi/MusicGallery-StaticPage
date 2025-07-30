@@ -33,10 +33,10 @@ export async function registerUniqueVisitor() {
     });
 }
 
-export async function showVisitorCount(selector = "#visitorCount") {
+export async function showVisitorCount(selector = "#visitorNumber") {
     const snapshot = await getCountFromServer(collection(db, "visitors"));
     const count = snapshot.data().count;
 
     const el = document.querySelector(selector);
-    if (el) el.textContent = `Visitantes: ${count}`;
+    if (el) el.textContent = count;
 }
