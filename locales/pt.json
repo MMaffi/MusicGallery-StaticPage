@@ -14,6 +14,11 @@
         "settings": "Configurações",
         "language": "Idioma",
         "theme": "Tema",
+        "themes": {
+            "dark": "Escuro",
+            "light": "Claro",
+            "system": "Sistema"
+        },
         "notification": "Notificação",
         "btnnotification": "Ativar notificações",
         "btndisablenotification": "Desativar notificações",

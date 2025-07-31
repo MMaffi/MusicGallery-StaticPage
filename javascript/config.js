@@ -70,46 +70,59 @@ function clearHistory() {
 const selectedTheme = document.getElementById("selectedTheme");
 const themeOptions = selectedTheme.nextElementSibling;
 
-// Toggle visibilidade do dropdown
+function applyTheme(theme) {
+    document.body.classList.remove("light-theme", "dark-theme");
+
+    if (theme === "system") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.body.classList.add(prefersDark ? "dark-theme" : "light-theme");
+    } else {
+        document.body.classList.add(`${theme}-theme`);
+    }
+}
+
+function updateThemeButtonLabel() {
+    const theme = localStorage.getItem("theme") || "system";
+    const label = translations?.global?.themes?.[theme];
+
+    if (label) {
+        selectedTheme.querySelector("span").textContent = label;
+    }
+}
+
+const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+mediaQuery.addEventListener("change", () => {
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "system") {
+        applyTheme("system");
+    }
+});
+
 selectedTheme.addEventListener("click", () => {
     themeOptions.style.display = themeOptions.style.display === "block" ? "none" : "block";
 });
 
-// Seleção de tema
 themeOptions.querySelectorAll("li").forEach(option => {
     option.addEventListener("click", () => {
         const theme = option.dataset.theme;
 
-        // Atualiza botão
-        selectedTheme.querySelector("span").textContent = option.textContent;
-
-        // Aplica o tema no body
-        document.body.classList.remove("light-theme", "dark-theme");
-        document.body.classList.add(theme + "-theme");
-
-        // Salva no localStorage
         localStorage.setItem("theme", theme);
+        applyTheme(theme);
 
-        // Fecha o dropdown
+        updateThemeButtonLabel();
+
         themeOptions.style.display = "none";
     });
 });
 
-// Fecha o dropdown se clicar fora
+// Fecha dropdown se clicar fora
 document.addEventListener("click", (e) => {
     if (!selectedTheme.contains(e.target) && !themeOptions.contains(e.target)) {
         themeOptions.style.display = "none";
     }
 });
 
-// Aplica o tema salvo ao carregar
 window.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    document.body.classList.add(savedTheme + "-theme");
-
-    const themeButton = document.getElementById("selectedTheme");
-    if (themeButton) {
-        themeButton.querySelector("span").textContent =
-            savedTheme.charAt(0).toUpperCase() + savedTheme.slice(1);
-    }
+    const savedTheme = localStorage.getItem("theme") || "system";
+    applyTheme(savedTheme);
 });
