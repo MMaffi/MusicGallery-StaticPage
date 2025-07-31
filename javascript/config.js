@@ -84,9 +84,14 @@ function applyTheme(theme) {
 function updateThemeButtonLabel() {
     const theme = localStorage.getItem("theme") || "system";
     const label = translations?.global?.themes?.[theme];
+    const icons = {
+        dark: "🌙",
+        light: "☀️",
+        system: "🖥️"
+    };
 
     if (label) {
-        selectedTheme.querySelector("span").textContent = label;
+        selectedTheme.querySelector("span").textContent = `${icons[theme]} ${label}`;
     }
 }
 

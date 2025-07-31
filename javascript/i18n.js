@@ -44,9 +44,7 @@ function setLanguage(lang) {
             const pageTitle = resolveNestedKey(translations, `${currentPage}.meta.title`);
             if (pageTitle) document.title = pageTitle;
 
-            const themeTranslations = translations.global.themes;
-            const currentTheme = localStorage.getItem("theme") || "system";
-            selectedTheme.querySelector("span").textContent = themeTranslations[currentTheme];
+            updateThemeButtonLabel();
 
             const savedLang = localStorage.getItem('lang') || 'pt';
             const langLabel = translations.global.languages[savedLang];
