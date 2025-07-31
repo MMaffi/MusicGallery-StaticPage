@@ -17,28 +17,35 @@ const langData = {
 
 const dropdown = document.querySelector('.language-dropdown');
 const toggle = document.getElementById('selectedLang');
-const options = document.querySelectorAll('.dropdown-options li');
+const dropdownOptions = document.querySelector('.dropdown-options');
 
 toggle.addEventListener('click', () => {
     dropdown.classList.toggle('open');
 });
 
-options.forEach(option => {
-    option.addEventListener('click', () => {
-        const lang = option.getAttribute('data-lang');
-        const img = option.querySelector('img').src;
-        const label = option.querySelector('span').textContent;
+dropdownOptions.addEventListener('click', (event) => {
+    const option = event.target.closest('li');
+    if (!option) return;
 
-        toggle.innerHTML = `<img src="${img}" alt="flag"><span>${label}</span>`;
+    const lang = option.getAttribute('data-lang');
+    const imgElement = option.querySelector('img');
+    const spanElement = option.querySelector('span');
 
-        dropdown.classList.remove('open');
+    if (!imgElement || !spanElement) {
+        console.warn('Elemento img ou span não encontrado dentro do li');
+        return;
+    }
 
-        localStorage.setItem('lang', lang);
+    toggle.innerHTML = `<img src="${imgElement.src}" alt="flag"><span>${spanElement.textContent}</span>`;
 
-        setLanguage(lang);
-    });
+    dropdown.classList.remove('open');
+
+    localStorage.setItem('lang', lang);
+
+    setLanguage(lang);
 });
 
+// Fecha dropdown se clicar fora
 document.addEventListener('click', (e) => {
     if (!dropdown.contains(e.target)) {
         dropdown.classList.remove('open');
