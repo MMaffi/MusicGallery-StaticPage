@@ -7,6 +7,10 @@
 
 	<!-- Css links -->
     <link rel="stylesheet" href="./css/suggestions.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/scrollbar.css">
+    <link rel="stylesheet" href="./css/mediaquery.css">
 	<link rel="stylesheet" href="./css/configstyle.css">
 	<link rel="stylesheet" href="./css/lightmode.css">
     <link rel="stylesheet" href="./css/toastify.css">
@@ -17,37 +21,84 @@
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
+
+     <!-- Link Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 </head>
 <body>
 
-	<a href="./index.html"><button class="back" data-i18n="suggestions.backButton">Voltar</button></a>
+    <header>
+        <div class="header-left">
+            <h1>Music Gallery</h1>
+            <span class="separator">|</span>
+            <h2 class="page-title" data-i18n="suggestions.pageTitle">Sugestões</h2>
+        </div>
+        <div class="header-right">
+            <nav class="menu">
+                <a href="./index.html" data-i18n="global.nav.home">Início</a>
+                |
+                <a href="./videos.html" data-i18n="global.nav.videos">Vídeos</a>
+                |
+                <a href="./sobre.html" data-i18n="global.nav.about">Sobre</a>
+                |
+                <a href="sugestoes.html" data-i18n="global.nav.suggestions">Sugestões</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="container">
-		<h1 data-i18n="suggestions.form.heading">Sugira uma Música</h1>
-		<form action="https://formsubmit.co/mm.maffi@outlook.com" method="POST">
-			<input type="hidden" name="_captcha" value="false">
-			<input type="hidden" name="_subject" value="Nova sugestão de música!">
-			<input type="hidden" name="_template" value="box">
-			<input type="hidden" name="_next" value="https://mmaffi.github.io/MusicGallery/thankyou.html">
+    <main>
 
-			<label for="name" data-i18n="suggestions.form.labels.name">Seu Nome:</label>
-			<input type="text" id="name" name="Nome" required>
+        <div class="container">
+            <h1 data-i18n="suggestions.form.heading">Sugira uma Música</h1>
+            <form action="https://formsubmit.co/mm.maffi@outlook.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nova sugestão de música!">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_next" value="https://mmaffi.github.io/MusicGallery/thankyou.html">
 
-			<label for="email" data-i18n="suggestions.form.labels.email">Seu E-mail:</label>
-			<input type="email" id="email" name="Email" required>
+                <label for="name" data-i18n="suggestions.form.labels.name">Seu Nome:</label>
+                <input type="text" id="name" name="Nome" required autocomplete="off">
 
-			<label for="song" data-i18n="suggestions.form.labels.song">Nome da Música:</label>
-			<input type="text" id="song" name="Música" required>
+                <label for="email" data-i18n="suggestions.form.labels.email">Seu E-mail:</label>
+                <input type="email" id="email" name="Email" required autocomplete="off">
 
-			<label for="artist" data-i18n="suggestions.form.labels.artist">Artista/Banda:</label>
-			<input type="text" id="artist" name="Artista" required>
+                <label for="song" data-i18n="suggestions.form.labels.song">Nome da Música:</label>
+                <input type="text" id="song" name="Música" required autocomplete="off">
 
-			<label for="message" data-i18n="suggestions.form.labels.message">Mensagem (opcional):</label>
-			<textarea id="message" name="Mensagem" rows="4"></textarea>
+                <label for="artist" data-i18n="suggestions.form.labels.artist">Artista/Banda:</label>
+                <input type="text" id="artist" name="Artista" required autocomplete="off">
 
-			<button type="submit" class="submitbutton" data-i18n="suggestions.form.submitButton">Enviar Sugestão</button>
-		</form>
-    </div>
+                <label for="message" data-i18n="suggestions.form.labels.message">Mensagem (opcional):</label>
+                <textarea id="message" name="Mensagem" rows="4"></textarea>
+
+                <button type="submit" class="submitbutton" data-i18n="suggestions.form.submitButton">Enviar Sugestão</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        
+        <div class="social-media">
+            <a href="https://www.instagram.com/mateus_maffi" target="_blank" class="instagram" title="Instagram">
+                <img src="./assets/icons/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@MateusMaffi" target="_blank" class="youtube" title="YouTube">
+                <img src="./assets/icons/youtube.svg" alt="YouTube">
+            </a>
+            <a href="https://github.com/MMaffi" target="_blank" class="github" title="GitHub">
+                <img src="./assets/icons/github.svg" alt="GitHub">
+            </a>
+            <a href="https://mmaffi.github.io" target="_blank" class="portfolio" title="Portfólio" data-i18n-title="portfolio">
+                <img src="./assets/icons/portfolio.svg" alt="Portfólio">
+            </a>
+            <a href="mailto:mm.maffi@outlook.com" class="email" title="E-mail">
+                <img src="./assets/icons/email.svg" alt="E-mail">
+            </a>
+        </div>
+
+        <p class="copyright" data-i18n="global.copyright">&copy; 2025 Music Gallery - Todos os direitos reservados</p>
+
+    </footer>
 
 	<!-- Configurações -->
     <button id="configBtn" title="Configurações" data-i18n-title="settingsTitle" style="display: none;">
@@ -130,6 +181,7 @@
     </div>
 
 	<script src="./javascript/config.js"></script>
+    <script src="./javascript/script.js"></script>
 	<script src="./javascript/load-version.js"></script>
     <script src="./javascript/i18n.js"></script>
     <script src="./javascript/toastify.js"></script>
