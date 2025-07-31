@@ -316,22 +316,6 @@ footer p.copyright {
 .social-media img {
     width: 100%;
     height: auto;
-    filter: brightness(0) invert(1); /* Deixa os ícones brancos */
+    filter: brightness(0) invert(1);
     transition: filter 0.3s;
-}
-
-.instagram:hover img {
-    filter: hue-rotate(300deg) brightness(1.2);
-}
-.youtube:hover img {
-    filter: hue-rotate(-30deg) brightness(1.2);
-}
-.github:hover img {
-    filter: hue-rotate(180deg) brightness(1.2);
-}
-.portfolio:hover img {
-    filter: hue-rotate(210deg) brightness(1.2);
-}
-.email:hover img {
-    filter: hue-rotate(90deg) brightness(1.2);
 }
