@@ -30,6 +30,8 @@
     color: #ccc;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
+    padding-right: 40px;
+    word-break: break-all;
 }
 
 #player-meta {
