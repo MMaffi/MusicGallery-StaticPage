@@ -13,6 +13,11 @@
         "views": "views",
         "settings": "Settings",
         "language": "Language",
+        "languages": {
+            "pt": "Portuguese",
+            "en": "English",
+            "es": "Spanish"
+        },
         "theme": "Theme",
         "themes": {
             "dark": "Dark",

@@ -48,6 +48,11 @@ function setLanguage(lang) {
             const currentTheme = localStorage.getItem("theme") || "system";
             selectedTheme.querySelector("span").textContent = themeTranslations[currentTheme];
 
+            const savedLang = localStorage.getItem('lang') || 'pt';
+            const langLabel = translations.global.languages[savedLang];
+            const langFlag = langData[savedLang].flag;
+            toggle.innerHTML = `<img src="${langFlag}" alt="flag"><span>${langLabel}</span>`;
+
             localStorage.setItem("lang", lang);
 
         });

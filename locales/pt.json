@@ -13,6 +13,11 @@
         "views": "visualizações",
         "settings": "Configurações",
         "language": "Idioma",
+        "languages": {
+            "pt": "Português",
+            "en": "Inglês",
+            "es": "Espanhol"
+        },
         "theme": "Tema",
         "themes": {
             "dark": "Escuro",
