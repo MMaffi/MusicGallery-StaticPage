@@ -151,6 +151,11 @@ body.light-theme .setting-group button {
 
 body.light-theme .close-settings {
 	color: #000;
+	transition: .3s;
+}
+
+body.light-theme .close-settings:hover {
+	color: red;
 }
 
 body.light-theme .about {
