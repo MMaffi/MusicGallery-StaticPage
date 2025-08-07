@@ -38,7 +38,7 @@ export async function notify() {
         const swRegistration = await navigator.serviceWorker.ready;
 
         token = await getToken(messaging, {
-            vapidKey: "BOqfZhGWsSKF5XOqLBZQG1GU6PJAYasFrdoggqYUnw8jERLk3zLqCdemOZcUTGh26K0oPuuY-Tubv4YvNuJ9uKg",
+            vapidKey: "...",
             serviceWorkerRegistration: swRegistration
         });
 
