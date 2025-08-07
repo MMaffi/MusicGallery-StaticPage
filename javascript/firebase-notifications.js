@@ -2,12 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebas
 import { getMessaging, getToken, deleteToken } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDpt2hlv15tCsVEdpYdmndnQX21dbe0tnw",
-    authDomain: "musicgallery-e8284.firebaseapp.com",
-    projectId: "musicgallery-e8284",
-    storageBucket: "musicgallery-e8284.appspot.com",
-    messagingSenderId: "248700233047",
-    appId: "1:248700233047:web:182f23fb5a4383761dca12"
+    apiKey: "...",
+    authDomain: "...",
+    projectId: "...",
+    storageBucket: "...",
+    messagingSenderId: "...",
+    appId: "..."
 };
 
 const app = initializeApp(firebaseConfig);
