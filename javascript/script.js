@@ -9,8 +9,8 @@ let currentIndex = 0;
 const batchSize = isHomePage ? 19 : isVideosPage ? 60 : 19;
 
 // Colocar Restrições na API
-const apiKey = 'AIzaSyBs6PS2RkjkXlcrTDz9760GPEgta73CTX8';
-const playlistId = 'UU0HnTxJ5o42rXrR85VYfXVg';
+const apiKey = '...';
+const playlistId = '...';
 
 function fetchVideos(pageToken = '', accumulated = []) {
 	const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
